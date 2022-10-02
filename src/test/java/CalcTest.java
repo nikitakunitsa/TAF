@@ -2,52 +2,119 @@ import Data.StaticProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
-
 public class CalcTest extends BaseTest {
+    @Test
+    public void testDivforInt() {
+        Assert.assertEquals(calculator.div(4, 2), 2, " Сalculator made a mistake");
+        System.out.println("Test is okay");
+    }
 
     @Test
-    public void testSum() {
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+    public void testDivFailforInt() {
+        Assert.assertEquals(calculator.div(4, 1), 2, "Сalculator made a mistake");
     }
 
     @Test(enabled = false)
-    public void testSum1() {
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+    public void testDivForInt1() {
+        Assert.assertEquals(calculator.div(0, 0), 0);
     }
 
-    @Test(description = "Тест с описанием")
-    public void testSum2() {
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+    @Test
+    public void testDivforDouble() {
+        Assert.assertEquals(calculator.div(3.3, 2.75), 1.2, " Сalculator made a mistake");
+        System.out.println("Test is okay");
+    }
+
+    @Test
+    public void testDivFailforDouble() {
+        Assert.assertEquals(calculator.div(3.3, 2.75), 5.16, " Сalculator made a mistake");
+    }
+
+    @Test(enabled = false)
+    public void testDivForDouble1() {
+        Assert.assertEquals(calculator.div(3.3, 2.75), 1.2, " Сalculator made a mistake");
+    }
+
+    @Test(description = "Some description in terminal")
+    public void testDivforInt2() {
+        Assert.assertEquals(calculator.div(4, 2), 2, " Сalculator made a mistake");
+        System.out.println("Test is okay");
+    }
+
+    @Test(description = "Some description in terminal")
+    public void testDivforDouble2() {
+        Assert.assertEquals(calculator.div(3.3, 2.75), 1.2, " Сalculator made a mistake");
+        System.out.println("Test is okay");
     }
 
     @Test(testName = "Test with name")
-    public void testSum3() {
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+    public void testDivforInt3() {
+        Assert.assertEquals(calculator.div(4, 2), 2, " Сalculator made a mistake");
+        System.out.println("Test is okay");
     }
 
-    @Test(timeOut = 1000)
-    public void waitLongTimeTest() throws InterruptedException {
+    @Test(testName = "Some name ")
+    public void testDivforDouble3() {
+        Assert.assertEquals(calculator.div(3.3, 2.75), 1.2, " Сalculator made a mistake");
+        System.out.println("Test is okay");
+    }
+
+    @Test(timeOut = 700)
+    public void testDivforInt4() {
+        Assert.assertEquals(calculator.div(2, 2), 1);
+    }
+
+    @Test(timeOut = 700)
+    public void testDivforInt4Fail() throws InterruptedException {
+        Assert.assertEquals(calculator.div(2, 2), 1);
         Thread.sleep(1000);
     }
 
-    @Test (invocationCount = 3, invocationTimeOut = 1000, threadPoolSize = 3)
-    public void invocationCountTest() throws InterruptedException {
-        Thread.sleep(500);
-        Assert.assertEquals(calculator.sum(2, 3), 5, "Неверная сумма...");
+    @Test(timeOut = 700)
+    public void testDivforDouble4() {
+        Assert.assertEquals(calculator.div(3.3, 2.75), 1.2);
     }
 
-    @Test (dataProvider = "dataForSum", dataProviderClass = StaticProvider.class, threadPoolSize = 3)
-    public void testDataProvider(int a, int b, int expectedResult) {
-        Assert.assertEquals(calculator.sum(a, b), expectedResult, "Неверная сумма...");
+    @Test(timeOut = 700)
+    public void testDivforDouble4Fail() throws InterruptedException {
+        Assert.assertEquals(calculator.div(2, 2), 1);
+        Thread.sleep(1000);
     }
 
-    @Test (expectedExceptions = NullPointerException.class)
-    public void testExceptions() {
-        List list = null;
-        int size = list.size();
+    @Test(invocationCount = 3)
+    public void testDivforint5() {
+        Assert.assertEquals(calculator.div(2, 2), 1);
     }
 
+    @Test(invocationCount = 3, invocationTimeOut = 1000, threadPoolSize = 3)
+    public void testDivforint6() {
+        Assert.assertEquals(calculator.div(2, 2), 1);
+    }
+
+    @Test(invocationCount = 3)
+    public void testDivforDouble5() {
+        Assert.assertEquals(calculator.div(3.3, 2.75), 1.2);
+    }
+
+    @Test(invocationCount = 3, invocationTimeOut = 1000, threadPoolSize = 3)
+    public void testDivforDouble6() {
+        Assert.assertEquals(calculator.div(3.3, 2.75), 1.2);
+    }
+
+    @Test(dataProvider = "dataForint", dataProviderClass = StaticProvider.class)
+    public void testDataProvaiderForInt(int a, int b, int expectedResult) {
+        Assert.assertEquals(calculator.div(a, b), expectedResult, "Some mistake");
+    }
+
+    @Test(dataProvider = "dataForint1", dataProviderClass = StaticProvider.class,expectedExceptions = ArithmeticException.class)
+    public void testDataProvaiderForInt1(int a, int b, int expectedResult) {
+        Assert.assertEquals(calculator.div(a, b), expectedResult, "Some mistake");
+
+    }
+    @Test(dataProvider = "dataForDouble", dataProviderClass = StaticProvider.class)
+    public void testDataProvaiderForDouble(double a, double b, double expectedResult) {
+        Assert.assertEquals(calculator.div(a, b), expectedResult);
+    }
 
 
 }

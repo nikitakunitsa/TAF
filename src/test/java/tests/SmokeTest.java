@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -71,18 +72,35 @@ public class SmokeTest {
     }
 
     @Test
-    public void validateSmokeTest4() {
+    public void validateSmokeTest4() throws InterruptedException {
         driver.get("https://calc.by/building-calculators/laminate.html");
-        driver.manage().deleteAllCookies();
         WebElement room = driver.findElement(By.id("ln_room_id"));
+        room.clear();
         room.sendKeys("500");
         WebElement width = driver.findElement(By.id("wd_room_id"));
+        width.clear();
         width.sendKeys("400");
         WebElement longLaminat = driver.findElement(By.id("ln_lam_id"));
+        longLaminat.clear();
         longLaminat.sendKeys("2000");
         WebElement widhtLaminat = driver.findElement(By.id("wd_lam_id"));
+        widhtLaminat.clear();
         widhtLaminat.sendKeys("200");
-    }
+        WebElement selectWebelemetn = driver.findElement(By.id("laying_method_laminate"));
+        Select selectType = new Select(selectWebelemetn);
+        selectType.selectByVisibleText("с использованием отрезанного элемента");
+        WebElement directiinLaminat = driver.findElement(By.id("direction-laminate-id1"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", directiinLaminat);
+        directiinLaminat.click();
+        WebElement button = driver.findElement(By.linkText("Рассчитать"));
+        if (button.isDisplayed()) {
+            button.click();
+        }
+        Thread.sleep(670);
+       // Assert.assertEquals(driver.findElement(By.cssSelector("[ span style='padding:5px 0;font-size:22px; color:#C80303; font-weight:bold;']")).getText(), "53");//
+       // Assert.assertEquals(driver.findElement(By.cssSelector("div.calc-result span")).getText(),"57");
+        Assert.assertEquals(driver.findElement(By.cssSelector("div.calc-result > div ~ div > span")).getText(),"7");}
+
 
 
     @AfterMethod
@@ -90,4 +108,5 @@ public class SmokeTest {
         Thread.sleep(1000);
         driver.quit();
     }
+
 }

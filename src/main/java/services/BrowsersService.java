@@ -6,6 +6,7 @@ import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class BrowsersService {
@@ -28,11 +29,11 @@ public class BrowsersService {
                 driver = new ChromeDriver(chromeOptions);
 
                 break;
-            case "firefox":
-                driverManagerType = DriverManagerType.FIREFOX;
+            case "edge":
+                driverManagerType = DriverManagerType.EDGE;
                 WebDriverManager.getInstance(driverManagerType).setup();
 
-                driver = new FirefoxDriver();
+                driver = new EdgeDriver();
                 break;
             default:
                 System.out.println("Browser " + ReadProperties.browserName() + " is not supported.");
@@ -47,5 +48,3 @@ public class BrowsersService {
         return driver;
     }
 }
-
-

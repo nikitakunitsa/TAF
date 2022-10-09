@@ -93,14 +93,11 @@ public class SmokeTest {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", directiinLaminat);
         directiinLaminat.click();
         WebElement button = driver.findElement(By.linkText("Рассчитать"));
-        if (button.isDisplayed()) {
-            button.click();
-        }
-        Thread.sleep(670);
-       // Assert.assertEquals(driver.findElement(By.cssSelector("[ span style='padding:5px 0;font-size:22px; color:#C80303; font-weight:bold;']")).getText(), "53");//
-       // Assert.assertEquals(driver.findElement(By.cssSelector("div.calc-result span")).getText(),"57");
-        Assert.assertEquals(driver.findElement(By.cssSelector("div.calc-result > div ~ div > span")).getText(),"7");}
-
+        button.click();
+        Thread.sleep(2000);
+        Assert.assertEquals(driver.findElement(By.cssSelector("[style='padding:5px 0;font-size:18px; color:#0E8C19; font-weight:bold;']")).getText(),"7");
+        Assert.assertEquals(driver.findElement(By.cssSelector("[style='padding:5px 0;font-size:22px; color:#C80303; font-weight:bold;']")).getText(), "53");
+    }
 
 
     @AfterMethod

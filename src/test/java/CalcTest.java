@@ -6,7 +6,6 @@ public class CalcTest extends BaseTest {
     @Test
     public void testDivforInt() {
         Assert.assertEquals(calculator.div(4, 2), 2, " Сalculator made a mistake");
-        System.out.println("Test is okay");
     }
 
     @Test
@@ -14,10 +13,6 @@ public class CalcTest extends BaseTest {
         Assert.assertEquals(calculator.div(4, 1), 2, "Сalculator made a mistake");
     }
 
-    @Test(enabled = false)
-    public void testDivForInt1() {
-        Assert.assertEquals(calculator.div(0, 0), 0);
-    }
 
     @Test
     public void testDivforDouble() {
@@ -106,15 +101,26 @@ public class CalcTest extends BaseTest {
         Assert.assertEquals(calculator.div(a, b), expectedResult, "Some mistake");
     }
 
-    @Test(dataProvider = "dataForint1", dataProviderClass = StaticProvider.class,expectedExceptions = ArithmeticException.class)
+    @Test(dataProvider = "dataForint1", dataProviderClass = StaticProvider.class, expectedExceptions = ArithmeticException.class)
     public void testDataProvaiderForInt1(int a, int b, int expectedResult) {
         Assert.assertEquals(calculator.div(a, b), expectedResult, "Some mistake");
 
     }
+
     @Test(dataProvider = "dataForDouble", dataProviderClass = StaticProvider.class)
     public void testDataProvaiderForDouble(double a, double b, double expectedResult) {
         Assert.assertEquals(calculator.div(a, b), expectedResult);
     }
 
+    @Test(expectedExceptions = ArithmeticException.class)
+    public void TestDiv() throws ArithmeticException {
+        calculator.div(10, 0);
+    }
 
+    @Test
+    public void testDivisionDoubleByZero() {
+        Assert.assertEquals(calculator.div(12.5, 0), Double.POSITIVE_INFINITY, "Результат деления дробных чисел на '0' неверен");
+
+
+    }
 }

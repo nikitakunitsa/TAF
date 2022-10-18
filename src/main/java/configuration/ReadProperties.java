@@ -23,8 +23,26 @@ public class ReadProperties {
         return properties.getProperty("browser");
     }
 
-    public static String username() {
-        return properties.getProperty("username");
+    public static String usernameStandard() {
+        return properties.getProperty("usernameStandard");
+    }
+    public static String usernameBlocked() {
+        return properties.getProperty("usernameBlocked");
+    }
+    public static String usernameProblem() {
+        return properties.getProperty("usernameProblem");
+    }
+    public static String usernamePerformanceGlitch() {
+        return properties.getProperty("usernamePerformanceGlitch");
+    }
+    public static String twiter() {
+        return properties.getProperty("twiter");
+    }
+    public static String link() {
+        return properties.getProperty("link");
+    }
+    public static String facebook() {
+        return properties.getProperty("facebook");
     }
 
     public static String password() {
@@ -34,4 +52,5 @@ public class ReadProperties {
     public static boolean isHeadless() {
         return properties.getProperty("headless").equalsIgnoreCase("true");
     }
+
 }

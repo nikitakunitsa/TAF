@@ -9,11 +9,7 @@ public class ContainerMenuPage extends BasePage {
 
     // Блок описания селекторов для элементов
     private final By pageIndetifer=By.id("react-burger-menu-btn");
-
-    private final By menuItemLocator=By.id("inventory_sidebar_link");
     private final By logOutItemLocator=By.id("logout_sidebar_link");
-
-    private final By deleteAllProductucFromButton=By.id("reset_sidebar_link");
 
     // Блок инициализации страницы
     public ContainerMenuPage(WebDriver driver) {
@@ -30,14 +26,4 @@ public class ContainerMenuPage extends BasePage {
     public void logOutFromMenuPage(){
         getLogOutItemLocator().click();
     }
-    public WebElement getDeleteAllProductucFromButton() {
-        return driver.findElement(deleteAllProductucFromButton);
-    }
-    public void deleteProductucFromButton(){
-        getDeleteAllProductucFromButton().click();
-    }
-
-
-
-
 }

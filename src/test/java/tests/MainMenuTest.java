@@ -5,6 +5,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import configuration.ReadProperties;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainMenuTest extends BaseTest {
 
@@ -80,23 +83,21 @@ public class MainMenuTest extends BaseTest {
         mainPageStep.removeFiveProductTObasket();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"1");
     }
-    @Test(enabled = false)
-    public void RemoveAllProductFromContainerMenuPage() throws InterruptedException {
-        loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addSixProductTObasket();
-        Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"6");
-        mainPageStep.clickButtonMenuPage();
-        Thread.sleep(1000);
-        containerMenuPage.deleteProductucFromButton();
-        //Assert.assertFalse(mainPageStep.falseBukket());
-    }
+
     @Test
     public void CliclButtonTwitterTest()throws InterruptedException{
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
         mainPageStep.someClickOnTwiter();
-        Thread.sleep(3000);
-        System.out.print(driver.getCurrentUrl());
+        List<String> windowsHandles=new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(windowsHandles.get(windowsHandles.size()-1));
         Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.twiter()));
-
+    }
+    @Test
+    public void CliclButtonFacebook()throws InterruptedException{
+        loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
+        mainPageStep.someClickOnFacebook();
+        List<String> windowsHandles=new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(windowsHandles.get(windowsHandles.size()-1));
+        Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.facebook()));
     }
 }

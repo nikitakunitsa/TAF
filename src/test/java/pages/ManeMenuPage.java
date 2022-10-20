@@ -11,21 +11,23 @@ public class ManeMenuPage extends BasePage {
 
     // Блок описания селекторов для элементов
     private final By headerTitleLabelLocator = By.xpath("//*[text()='Products']");
-    private final By SauceLabsBackpackLocator = By.id("add-to-cart-sauce-labs-backpack");
-    private final By SauceLabsBikeLighLocator = By.id("add-to-cart-sauce-labs-bike-light");
-    private final By SauceLabsBoltTShirtLocator = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
-    private final By SauceLabsFleeceJackeLocator = By.id("add-to-cart-sauce-labs-fleece-jacket");
-    private final By SauceLabsOnesieLocator = By.id("add-to-cart-sauce-labs-onesie");
-    private final By TestallTheThingsTShirtRedLocators = By.id("add-to-cart-test.allthethings()-t-shirt-(red)");
-    private final By SauceLabsBackpackLocatorRemove = By.id("remove-sauce-labs-backpack");
-    private final By SauceLabsBikeLighLocatorRemove = By.id("remove-sauce-labs-bike-light");
-    private final By SauceLabsBoltTShirtLocatoRemove = By.id("remove-sauce-labs-bolt-t-shirt");
-    private final By SauceLabsFleeceJackeLocatorRemove = By.id("remove-sauce-labs-fleece-jacket");
-    private final By SauceLabsOnesieLocatorRemove = By.id("remove-sauce-labs-onesie");
-    private final By TestallTheThingsTShirtRedLocatorsRemove = By.id("remove-test.allthethings()-t-shirt-(red)");
-    private final By ShoppingCartValueLocators = By.className("shopping_cart_badge");
-    private final By ContainerMenuPage = By.id("react-burger-menu-btn");
-   private final By TwitterClick = By.linkText("Twitter");
+    private final By sauceLabsBackpackLocator = By.id("add-to-cart-sauce-labs-backpack");
+    private final By sauceLabsBikeLighLocator = By.id("add-to-cart-sauce-labs-bike-light");
+    private final By sauceLabsBoltTShirtLocator = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
+    private final By sauceLabsFleeceJackeLocator = By.id("add-to-cart-sauce-labs-fleece-jacket");
+    private final By sauceLabsOnesieLocator = By.id("add-to-cart-sauce-labs-onesie");
+    private final By testallTheThingsTShirtRedLocators = By.id("add-to-cart-test.allthethings()-t-shirt-(red)");
+    private final By sauceLabsBackpackLocatorRemove = By.id("remove-sauce-labs-backpack");
+    private final By sauceLabsBikeLighLocatorRemove = By.id("remove-sauce-labs-bike-light");
+    private final By sauceLabsBoltTShirtLocatoRemove = By.id("remove-sauce-labs-bolt-t-shirt");
+    private final By sauceLabsFleeceJackeLocatorRemove = By.id("remove-sauce-labs-fleece-jacket");
+    private final By sauceLabsOnesieLocatorRemove = By.id("remove-sauce-labs-onesie");
+    private final By testallTheThingsTShirtRedLocatorsRemove = By.id("remove-test.allthethings()-t-shirt-(red)");
+    private final By shoppingCartValueLocators = By.className("shopping_cart_badge");
+    private final By shoppingCartLink=By.className("shopping_cart_link");
+    private final By containerMenuPageLink = By.id("react-burger-menu-btn");
+    private final By twitterClick = By.linkText("Twitter");
+    private final By facebookClick = By.linkText("Facebook");
 
     public ContainerMenuPage containerMenuPage;
 
@@ -41,69 +43,82 @@ public class ManeMenuPage extends BasePage {
     }
 
     public WebElement getContainerMenuPage() {
-        return driver.findElement(ContainerMenuPage);
+        return driver.findElement(containerMenuPageLink);
     }
 
     public void clickContainerMenuPage() {
         getContainerMenuPage().click();
     }
 
+    public WebElement getShoppingCartLink() {
+        return driver.findElement(shoppingCartLink);
+    }
+    public void clickToCheckoutPage(){
+        getShoppingCartLink().click();
+    }
+
 
     public WebElement getSauceLabsBackpackLocator() {
-        return driver.findElement(SauceLabsBackpackLocator);
+        return driver.findElement(sauceLabsBackpackLocator);
 
     }
 
     public WebElement getSauceLabsBikeLighLocator() {
-        return driver.findElement(SauceLabsBikeLighLocator);
+        return driver.findElement(sauceLabsBikeLighLocator);
     }
 
     public WebElement getSauceLabsBoltTShirtLocator() {
-        return driver.findElement(SauceLabsBoltTShirtLocator);
+        return driver.findElement(sauceLabsBoltTShirtLocator);
     }
 
     public WebElement getSauceLabsFleeceJackeLocator() {
-        return driver.findElement(SauceLabsFleeceJackeLocator);
+        return driver.findElement(sauceLabsFleeceJackeLocator);
     }
 
     public WebElement getSauceLabsOnesieLocator() {
-        return driver.findElement(SauceLabsOnesieLocator);
+        return driver.findElement(sauceLabsOnesieLocator);
     }
 
     public WebElement getTestallTheThingsTShirtRedLocators() {
-        return driver.findElement(TestallTheThingsTShirtRedLocators);
+        return driver.findElement(testallTheThingsTShirtRedLocators);
     }
 
     public WebElement getTwitterClick() {
-        return driver.findElement(TwitterClick);
+        return driver.findElement(twitterClick);
     }
 
     public void twitterClick() {
         getTwitterClick().click();
     }
+    public WebElement  getFacebookClick() {
+        return driver.findElement(facebookClick);
+    }
+    public void facebookClick() {
+        getFacebookClick().click();
+    }
 
     public WebElement getSauceLabsBackpackLocatorRemove() {
-        return driver.findElement(SauceLabsBackpackLocatorRemove);
+        return driver.findElement(sauceLabsBackpackLocatorRemove);
     }
 
     public WebElement getSauceLabsBikeLighLocatorRemove() {
-        return driver.findElement(SauceLabsBikeLighLocatorRemove);
+        return driver.findElement(sauceLabsBikeLighLocatorRemove);
     }
 
     public WebElement getSauceLabsBoltTShirtLocatoRemove() {
-        return driver.findElement(SauceLabsBoltTShirtLocatoRemove);
+        return driver.findElement(sauceLabsBoltTShirtLocatoRemove);
     }
 
     public WebElement getSauceLabsFleeceJackeLocatorRemove() {
-        return driver.findElement(SauceLabsFleeceJackeLocatorRemove);
+        return driver.findElement(sauceLabsFleeceJackeLocatorRemove);
     }
 
     public WebElement getSauceLabsOnesieLocatorRemove() {
-        return driver.findElement(SauceLabsOnesieLocatorRemove);
+        return driver.findElement(sauceLabsOnesieLocatorRemove);
     }
 
     public WebElement getTestallTheThingsTShirtRedLocatorsRemove() {
-        return driver.findElement(TestallTheThingsTShirtRedLocatorsRemove);
+        return driver.findElement(testallTheThingsTShirtRedLocatorsRemove);
     }
 
     public void RemoveToShoppingCarsStep1Item() throws InterruptedException {
@@ -179,7 +194,6 @@ public class ManeMenuPage extends BasePage {
         getSauceLabsFleeceJackeLocator().click();
         getTestallTheThingsTShirtRedLocators().click();
     }
-
     public void RemoveToShoppingCarsStep6Item() {
         getSauceLabsBackpackLocatorRemove().click();
         getSauceLabsBikeLighLocatorRemove().click();
@@ -188,16 +202,9 @@ public class ManeMenuPage extends BasePage {
         getSauceLabsFleeceJackeLocatorRemove().click();
         getTestallTheThingsTShirtRedLocatorsRemove().click();
     }
-
     public WebElement getShoppingCartValueLocators() {
-        return driver.findElement(ShoppingCartValueLocators);
+        return driver.findElement(shoppingCartValueLocators);
     }
-
-    //public boolean findbacket(){
-    // getShooppnigCartValueEmtyLocors().is;
-    // return false;
-    //}
-
 }
 
 

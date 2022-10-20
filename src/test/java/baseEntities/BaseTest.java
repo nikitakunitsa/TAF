@@ -6,6 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.ContainerMenuPage;
 import services.BrowsersService;
+import steps.CheckoutStep;
 import steps.LoginStep;
 import steps.MainPageStep;
 public class BaseTest {
@@ -13,6 +14,7 @@ public class BaseTest {
     protected LoginStep loginStep;
     protected MainPageStep mainPageStep;
     protected ContainerMenuPage containerMenuPage;
+    protected CheckoutStep checkoutStep;
     @BeforeMethod
     public void setUp() {
         driver = new BrowsersService().getDriver();
@@ -21,6 +23,7 @@ public class BaseTest {
         loginStep =new LoginStep(driver);
         mainPageStep=new MainPageStep(driver);
         containerMenuPage=new ContainerMenuPage(driver);
+        checkoutStep=new CheckoutStep(driver);
     }
     @AfterMethod
     public void tearDown() {

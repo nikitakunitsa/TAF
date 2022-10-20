@@ -62,11 +62,6 @@ public class MainPageStep extends BaseStep {
         maneMenuPage.AddToShoppingCarsStep6Item();
        return null;
     }
-    public MainMenuTest removeSixProductTObasket(){
-        maneMenuPage.RemoveToShoppingCarsStep6Item();
-        return null;
-    }
-
     public String TakeValueOfBasket(){
         return maneMenuPage.getShoppingCartValueLocators().getText();
     }
@@ -80,9 +75,11 @@ public class MainPageStep extends BaseStep {
     public void someClickOnTwiter(){
         maneMenuPage.twitterClick();
     }
-  /* public  boolean falseBukket(){
-        maneMenuPage.findbacket();
-       return false;
-   }*/
+    public void someClickOnFacebook(){
+        maneMenuPage.facebookClick();
+    }
+    public  void goToCheckoutPage(){
+        maneMenuPage.clickToCheckoutPage();
+    }
 
 }

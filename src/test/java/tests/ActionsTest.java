@@ -1,33 +1,30 @@
 package tests;
 
 import baseEntities.BaseTest;
-import com.beust.ah.A;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import services.WaitsService;
-import services.WaitsService;
-
 import java.time.Duration;
-import java.util.List;
 
 public class ActionsTest extends BaseTest {
 
     @Test
     public void contextMenuTest() throws InterruptedException {
-        Actions actions=new Actions(driver);
+        Actions actions = new Actions(driver);
         driver.get("http://the-internet.herokuapp.com/context_menu");
-        WebElement targetBox= driver.findElement(By.id("hot-spot"));
+        WebElement targetBox = driver.findElement(By.id("hot-spot"));
         actions
                 .moveToElement(targetBox)
                 .contextClick()
                 .build()
                 .perform();
-        Alert alert=driver.switchTo().alert();
+        Alert alert = driver.switchTo().alert();
         Assert.assertTrue(alert.getText().equals("You selected a context menu"));
         alert.accept();
     }
+
     @Test
     public void disappearingElementsTest() {
         driver.get("http://the-internet.herokuapp.com/disappearing_elements");
@@ -37,16 +34,16 @@ public class ActionsTest extends BaseTest {
         driver.findElement(By.linkText("About")).click();
         Assert.assertTrue(driver.getCurrentUrl().equals("http://the-internet.herokuapp.com/about/"));
     }
+
     @Test
     public void dragAndDropTest() throws InterruptedException {
         driver.get("http://the-internet.herokuapp.com/drag_and_drop");
         WebElement targetA = driver.findElement(By.id("column-a"));
         WebElement targetB = driver.findElement(By.id("column-b"));
-
-        DragAndDropJS(targetA,targetB,driver);
+        DragAndDropJS(targetA, targetB, driver);
         Thread.sleep(5000);
-
     }
+
     public void DragAndDropJS(WebElement source, WebElement destination, WebDriver driver) {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("function createEvent(typeOfEvent) {\n"
@@ -69,17 +66,18 @@ public class ActionsTest extends BaseTest {
 
     @Test(description = "Не работает драк анд дроп через акшионс")
     public void dragAndDropTes1() throws InterruptedException {
-        Actions actions=new Actions(driver);
+        Actions actions = new Actions(driver);
         driver.get("http://the-internet.herokuapp.com/drag_and_drop");
         WebElement targetA = driver.findElement(By.id("column-a"));
         WebElement targetB = driver.findElement(By.id("column-b"));
         actions
                 .moveToElement(targetA)
-                .dragAndDrop(targetA,targetB)
+                .dragAndDrop(targetA, targetB)
                 .build()
                 .perform();
         Thread.sleep(2000);
     }
+
     @Test
     public void dynamicControlsTest() throws InterruptedException {
         Actions actions = new Actions(driver);
@@ -93,14 +91,15 @@ public class ActionsTest extends BaseTest {
                 .perform();
         Assert.assertTrue(wait.waitForVisibilityBy(By.id("message")).getText().equals("It's gone!"));
     }
+
     @Test
     public void dynamicControlsTest1() throws InterruptedException {
         driver.get("http://the-internet.herokuapp.com/dynamic_controls");
-        Actions actions=new Actions(driver);
+        Actions actions = new Actions(driver);
         WaitsService wait = new WaitsService(driver, Duration.ofSeconds(10));
-        WebElement input =driver.findElement((By.cssSelector("[type='text']")));
+        WebElement input = driver.findElement((By.cssSelector("[type='text']")));
         Assert.assertTrue(input.isDisplayed());
-        WebElement cliclkElement= wait.waitForVisibilityBy(driver.findElement(By.cssSelector("[onclick='swapInput()']")));
+        WebElement cliclkElement = wait.waitForVisibilityBy(driver.findElement(By.cssSelector("[onclick='swapInput()']")));
         Assert.assertTrue(cliclkElement.isDisplayed());
         actions
                 .moveToElement(cliclkElement)
@@ -112,15 +111,13 @@ public class ActionsTest extends BaseTest {
     }
 
     @Test
-    public void Frame(){
+    public void Frame() {
         driver.get("http://the-internet.herokuapp.com/iframe");
-        WebElement frameElement=driver.findElement(By.tagName("iframe"));
+        WebElement frameElement = driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(0);
         Assert.assertTrue(driver.findElement(By.xpath("//p[. ='Your content goes here.']")).getText()
                 .equals("Your content goes here."));
-
     }
-
 }
 
 

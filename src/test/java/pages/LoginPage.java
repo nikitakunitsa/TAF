@@ -17,8 +17,8 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    @Override
-    protected By getPageIdentifier() {
+
+    public By getPageIdentifier() {
         return loginButtonLocator;
     }
 

@@ -11,74 +11,97 @@ public class MainPageStep extends BaseStep {
 
     ManeMenuPage maneMenuPage;
     ContainerMenuPage containerMenuPage;
+
     public MainPageStep(WebDriver driver) {
         super(driver);
-        maneMenuPage  = new ManeMenuPage(driver);
-        containerMenuPage=new ContainerMenuPage(driver);
+        maneMenuPage = new ManeMenuPage(driver);
+        containerMenuPage = new ContainerMenuPage(driver);
 
     }
-    public MainMenuTest addOneProductTObasket(){
-        maneMenuPage.AddToShoppingCarsStep1Item();
-        return null;
-    }
-    public MainMenuTest removeOneProductTObasket() throws InterruptedException {
-        maneMenuPage.RemoveToShoppingCarsStep1Item();
-        return null;
-    }
-    public MainMenuTest addTwoProductTObasket(){
-        maneMenuPage.AddToShoppingCarsStep2Item();
-        return null;
-    }
-    public MainMenuTest removeTwoProductTObasket() throws InterruptedException {
-        maneMenuPage.RemoveToShoppingCarsStep2Item();
-        return null;
-    }
-    public ManeMenuPage addThereProductTObasket(){
-        maneMenuPage.AddToShoppingCarsStep3Item();
-        return null;
-    }
-    public MainMenuTest removeThreeProductTObasket() throws InterruptedException {
-        maneMenuPage.RemoveToShoppingCarsStep3Item();
-        return null;
-    }
-    public MainMenuTest addFoureProductTObasket(){
-        maneMenuPage.AddToShoppingCarsStep4Item();
-        return null;
-    }
-    public MainMenuTest removeFoureProductTObasket() throws InterruptedException {
-        maneMenuPage.RemobeToShoppingCarsStep4Item();
-        return null;
-    }
-    public MainMenuTest addFiveProductTObasket(){
-        maneMenuPage.AddToShoppingCarsStep5Item();
-        return null;
-    }
-    public MainMenuTest removeFiveProductTObasket() throws InterruptedException {
-        maneMenuPage.RemoveToShoppingCarsStep5Item();
-        return null;
+
+    public ManeMenuPage addSauceLabsBaskPack() {
+        maneMenuPage.addToShoppingCarsStepSauceLabsBackPack();
+        return maneMenuPage;
     }
 
-    public MainMenuTest addSixProductTObasket(){
-        maneMenuPage.AddToShoppingCarsStep6Item();
-       return null;
+    public ManeMenuPage removeSauceLabsBaskPack() throws InterruptedException {
+        maneMenuPage.removeToShoppingCarsStepSauceLabsBackPack();
+        return maneMenuPage;
     }
-    public String TakeValueOfBasket(){
+
+
+    public ManeMenuPage addSauceLabsBikeLight() throws InterruptedException {
+        maneMenuPage.addToShoppingCarsStepSauceLabsBikeLight();
+        return maneMenuPage;
+    }
+
+    public ManeMenuPage removeSauceLabsBikeLight() throws InterruptedException {
+        maneMenuPage.removeToShoppingCarsStepSauceLabsBikeLight();
+        return maneMenuPage;
+    }
+
+    public ManeMenuPage addSauceLabsBoltTShirt() {
+        maneMenuPage.addToShoppingCartStepSauceLabsBoltTShirt();
+        return maneMenuPage;
+    }
+
+    public ManeMenuPage removeSauceLabsBoltTShirt() throws InterruptedException {
+        maneMenuPage.removeToShoppingCartStepSauceLabsBoltTShirt();
+        return maneMenuPage;
+    }
+
+    public ManeMenuPage addSauceSauceLabsFleeceJacket() throws InterruptedException {
+        maneMenuPage.addToShoppingCartStepSauceSauceLabsFleeceJacket();
+        return maneMenuPage;
+    }
+
+    public ManeMenuPage removeSauceSauceLabsFleeceJacket() throws InterruptedException {
+        maneMenuPage.removeToShoppingCartStepSauceSauceLabsFleeceJacket();
+        return maneMenuPage;
+    }
+
+    public ManeMenuPage addSauceLabsOnesie() throws InterruptedException {
+        maneMenuPage.addToShoppingCartStepSauceLabsOnesie();
+        return maneMenuPage;
+    }
+
+    public ManeMenuPage removeaddSauceLabsOnesie() throws InterruptedException {
+        maneMenuPage.removeToShoppingCartStepSauceLabsOnesie();
+        return maneMenuPage;
+    }
+
+    public ManeMenuPage addTShirtRed() {
+        maneMenuPage.addToShoppingCarsStepTShirtRed();
+        return maneMenuPage;
+    }
+
+    public ManeMenuPage removeTShirtRed() {
+        maneMenuPage.removeToShoppingCarsStepTShirtRed();
+        return maneMenuPage;
+    }
+
+    public String TakeValueOfBasket() {
         return maneMenuPage.getShoppingCartValueLocators().getText();
     }
-    public void clickButtonMenuPage(){
+
+    public void clickButtonMenuPage() {
         maneMenuPage.clickContainerMenuPage();
     }
-    public void logout(){
+
+    public void logout() {
         containerMenuPage.logOutFromMenuPage();
 
     }
-    public void someClickOnTwiter(){
+
+    public void сlickOnTwiter() {
         maneMenuPage.twitterClick();
     }
-    public void someClickOnFacebook(){
+
+    public void сlickOnFacebook() {
         maneMenuPage.facebookClick();
     }
-    public  void goToCheckoutPage(){
+
+    public void goToCheckoutPage() {
         maneMenuPage.clickToCheckoutPage();
     }
 

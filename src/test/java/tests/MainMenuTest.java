@@ -15,79 +15,119 @@ public class MainMenuTest extends BaseTest {
     @Test
     public void addOneProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addOneProductTObasket();
+        mainPageStep.addSauceLabsBaskPack();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"1");
     }
     @Test
     public void addTwoProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addTwoProductTObasket();
+        mainPageStep.addSauceLabsBaskPack();
+        mainPageStep.addSauceLabsBoltTShirt();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"2");
     }
     @Test
     public void addTheProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addThereProductTObasket();
+        mainPageStep.addSauceLabsBikeLight();
+        mainPageStep.addSauceLabsBoltTShirt();
+        mainPageStep.addSauceLabsOnesie();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"3");
     }
     @Test
     public void addFourProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addFoureProductTObasket();
+        mainPageStep.addSauceLabsOnesie();
+        mainPageStep.addSauceLabsBikeLight();
+        mainPageStep.addSauceSauceLabsFleeceJacket();
+        mainPageStep.addSauceLabsBoltTShirt();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"4");
     }
     @Test
     public void addFiveProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addFiveProductTObasket();
+        mainPageStep.addSauceLabsOnesie();
+        mainPageStep.addSauceLabsBikeLight();
+        mainPageStep.addSauceSauceLabsFleeceJacket();
+        mainPageStep.addSauceLabsBoltTShirt();
+        mainPageStep.addTShirtRed();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"5");
     }
     @Test
     public void addSixProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addSixProductTObasket();
+        mainPageStep.addSauceLabsOnesie();
+        mainPageStep.addSauceLabsBikeLight();
+        mainPageStep.addSauceSauceLabsFleeceJacket();
+        mainPageStep.addSauceLabsBoltTShirt();
+        mainPageStep.addTShirtRed();
+        mainPageStep.addSauceLabsBaskPack();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"6");
     }
     @Test
     public void RemoveOneProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addTwoProductTObasket();
-        mainPageStep.removeOneProductTObasket();
+        mainPageStep.addTShirtRed();
+        mainPageStep.addSauceLabsBaskPack();
+        mainPageStep.removeTShirtRed();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"1");
     }
     @Test
     public void RemoveTwoProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addThereProductTObasket();
-        mainPageStep.removeTwoProductTObasket();
+        mainPageStep.addSauceLabsOnesie();
+        mainPageStep.addSauceLabsBikeLight();
+        mainPageStep.addTShirtRed();
+        mainPageStep.removeaddSauceLabsOnesie();
+        mainPageStep.removeSauceLabsBikeLight();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"1");
     }
     @Test
     public void RemoveThreeProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addFoureProductTObasket();
-        mainPageStep.removeThreeProductTObasket();
+        mainPageStep.addTShirtRed();
+        mainPageStep.addSauceSauceLabsFleeceJacket();
+        mainPageStep.addSauceLabsOnesie();
+        mainPageStep.addSauceLabsBoltTShirt();
+        mainPageStep.removeTShirtRed();
+        mainPageStep.removeSauceSauceLabsFleeceJacket();
+        mainPageStep.removeaddSauceLabsOnesie();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"1");
     }
     @Test
     public void RemoveFourProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addSixProductTObasket();
-        mainPageStep.removeFoureProductTObasket();
-        Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"2");
+        mainPageStep.addSauceSauceLabsFleeceJacket();
+        mainPageStep.addSauceLabsOnesie();
+        mainPageStep.addSauceLabsBoltTShirt();
+        mainPageStep.addSauceLabsBikeLight();
+        mainPageStep.addTShirtRed();
+        mainPageStep.removeTShirtRed();
+        mainPageStep.removeSauceSauceLabsFleeceJacket();
+        mainPageStep.removeaddSauceLabsOnesie();
+        mainPageStep.removeSauceLabsBoltTShirt();
+        Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"1");
     }
     @Test
     public void RemoveFiveProductTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.addSixProductTObasket();
-        mainPageStep.removeFiveProductTObasket();
+        mainPageStep.addSauceSauceLabsFleeceJacket();
+        mainPageStep.addSauceLabsOnesie();
+        mainPageStep.addSauceLabsBoltTShirt();
+        mainPageStep.addSauceLabsBikeLight();
+        mainPageStep.addTShirtRed();
+        mainPageStep.addSauceLabsBaskPack();
+        mainPageStep.removeTShirtRed();
+        mainPageStep.removeSauceSauceLabsFleeceJacket();
+        mainPageStep.removeaddSauceLabsOnesie();
+        mainPageStep.removeSauceLabsBoltTShirt();
+        mainPageStep.removeSauceLabsBaskPack();
         Assert.assertEquals(mainPageStep.TakeValueOfBasket(),"1");
     }
 
     @Test
     public void CliclButtonTwitterTest()throws InterruptedException{
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.someClickOnTwiter();
+        mainPageStep.сlickOnTwiter();
         List<String> windowsHandles=new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(windowsHandles.get(windowsHandles.size()-1));
         Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.twiter()));
@@ -95,7 +135,7 @@ public class MainMenuTest extends BaseTest {
     @Test
     public void CliclButtonFacebook()throws InterruptedException{
         loginStep.loginSuccessful(ReadProperties.usernameStandard(),ReadProperties.password());
-        mainPageStep.someClickOnFacebook();
+        mainPageStep.сlickOnFacebook();
         List<String> windowsHandles=new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(windowsHandles.get(windowsHandles.size()-1));
         Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.facebook()));

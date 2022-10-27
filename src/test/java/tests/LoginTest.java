@@ -52,6 +52,6 @@ public class LoginTest extends BaseTest {
        Thread.sleep(1000);
        mainPageStep.logout();
        Thread.sleep(1000);
-       Assert.assertTrue(loginStep.logOutTrue());
+       Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.getUrl()));
     }
 }

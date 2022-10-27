@@ -15,10 +15,12 @@ public class ContainerMenuPage extends BasePage {
     public ContainerMenuPage(WebDriver driver) {
         super(driver);
     }
+
     @Override
     protected By getPageIdentifier() {
         return pageIndetifer;
     }
+
     // Блок атомарных методов
     public WebElement getLogOutItemLocator() {
         return  driver.findElement(logOutItemLocator);

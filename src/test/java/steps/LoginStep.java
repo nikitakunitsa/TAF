@@ -6,7 +6,7 @@ import pages.ManeMenuPage;
 import pages.LoginPage;
 
 
-public class LoginStep extends BaseStep  {
+public class LoginStep extends BaseStep {
     LoginPage loginPage;
     ManeMenuPage maneMenuPage;
 
@@ -14,8 +14,9 @@ public class LoginStep extends BaseStep  {
         super(driver);
 
         loginPage = new LoginPage(driver);
-        maneMenuPage =new ManeMenuPage(driver);
+        maneMenuPage = new ManeMenuPage(driver);
     }
+
     public void login(String user, String psw) {
         loginPage.setEmail(user);
         loginPage.setPsw(psw);
@@ -33,10 +34,5 @@ public class LoginStep extends BaseStep  {
         return loginPage;
 
     }
-    public Boolean logOutTrue(){
-        loginPage.getLoginButton().isEnabled();
-        return true;
-    }
-
 }
 

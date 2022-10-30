@@ -38,5 +38,7 @@ public class ReadProperties {
     public static int timeout() {
         return Integer.parseInt(properties.getProperty("timeout"));
     }
-
+    public static String projectname() {return properties.getProperty("projectname");}
+    public static String sometext() {return properties.getProperty("sometext");}
+    public static String successfullyText() {return properties.getProperty("successfullyText");}
 }

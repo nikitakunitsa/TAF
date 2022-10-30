@@ -8,23 +8,43 @@ import pages.projects.AddProjectPage;
 public class AddNewProjectStep extends BaseStep {
 
     DashboardPage dashboardPage;
-    AddProjectPage addNewProjectPage;
+    AddProjectPage addProjectPage;
 
     public AddNewProjectStep(WebDriver driver) {
         super(driver);
         dashboardPage = new DashboardPage(driver);
-        addNewProjectPage=new AddProjectPage(driver);
+        addProjectPage=new AddProjectPage(driver);
     }
 
     public void addNewProject() {
-        dashboardPage.clickNewProject();
+        dashboardPage.addLinkNewProjectLocator().click();
     }
 
     public  void saveProject(){
-        addNewProjectPage.clickSaveButton();
+        addProjectPage.getSaveButton().click();
+    }
+    public void setNameProject(String value){
+        addProjectPage.getNameInput().sendKeys(value);
+    }
+    public void seTCheckBox(){
+        addProjectPage.getShowAnnouncement().set();
     }
 
+    public void removeCheckBox(){
+        addProjectPage.getShowAnnouncement().remove();
+    }
 
-
+    public void chooseForText(String value){
+        addProjectPage.getRadioButton().chouseForSerialNumber(value);
+    }
+    public void setText(String value){
+        addProjectPage.getInputAnnouncement().sendKeys(value);
+    }
+    public String getSuccesfulText(){
+       return dashboardPage.getsuccesfulLocatorText().getText();
+    }
+    public void chooseForNumber(int value){
+        addProjectPage.getRadioButton().chouseForNumber(value);
+    }
 
 }

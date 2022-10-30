@@ -1,6 +1,7 @@
 package pages;
 
 import baseEntities.BasePage;
+import elements.DropDown;
 import elements.Link;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,9 @@ public class DashboardPage extends BasePage {
 
     private final By addLinkNewProjectLocator=By.id("sidebar-projects-add");
 
+    private final By succesfulLocatorText=By.className("message-success");
 
+    private final By dropDownMenu=By.id("navigation-menu");
     public TopMenuPage topMenuPage;
 
     // Блок инициализации страницы
@@ -39,10 +42,15 @@ public class DashboardPage extends BasePage {
     public Link  addLinkNewProjectLocator(){
         return new Link(driver,waitsService.waitForVisibilityBy(addLinkNewProjectLocator));
     }
-    public void clickNewProject(){
-        addLinkNewProjectLocator().click();
+    public DropDown getDropDownMenu(){
+        return new DropDown(driver,waitsService.waitForVisibilityBy(dropDownMenu));
     }
-
+    public void clickDropDownMenu(){
+        getDropDownMenu().click();
+    }
+    public WebElement getsuccesfulLocatorText(){
+        return driver.findElement(succesfulLocatorText);
+    }
 
     public boolean isHeaderTitleLabelDisplayed() { return getHeaderTitleLabel().isDisplayed(); }
 }

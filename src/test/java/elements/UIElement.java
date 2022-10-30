@@ -9,7 +9,7 @@ import java.util.List;
 public class UIElement implements WebElement {
     private WebDriver driver;
     private By by;
-    private WebElement webElement;
+    private static WebElement webElement;
     private WaitsService waitsService;
 
     public UIElement(WebDriver driver, By by) {
@@ -43,7 +43,8 @@ public class UIElement implements WebElement {
     }
 
     @Override
-    public void sendKeys(CharSequence... keysToSend) {
+    public  void sendKeys(CharSequence... keysToSend) {
+
         webElement.sendKeys(keysToSend);
     }
 

@@ -4,6 +4,7 @@ import baseEntities.BasePage;
 import configuration.ReadProperties;
 import elements.Button;
 import elements.CheckBox;
+import elements.Input;
 import elements.UIElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -27,8 +28,8 @@ public class LoginPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public UIElement getEmailInput() { return new UIElement(driver, waitsService.waitForVisibilityBy(emailInputLocator)); }
-    public UIElement getPswInput() { return new UIElement(driver, pswInputLocator); }
+    public Input getEmailInput() { return new Input(driver, waitsService.waitForVisibilityBy(emailInputLocator)); }
+    public Input getPswInput() { return new Input(driver, waitsService.waitForVisibilityBy(pswInputLocator)); }
     public Button getLoginButton() { return new Button(driver, loginButtonLocator); }
 
     public void setEmail(String value) { getEmailInput().sendKeys(value); }

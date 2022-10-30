@@ -1,5 +1,6 @@
 package pages.projects;
 
+import elements.Button;
 import elements.CheckBox;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,8 +19,18 @@ public class AddProjectPage extends BaseProjectPage {
         return null;
     }
 
-    public WebElement getSaveButton() {
-        return driver.findElement(saveButtonLocator);
+    public Button getSaveButton() {
+        return new Button(driver,waitsService.waitForVisibilityBy(saveButtonLocator));
+    }
+    public void clickSaveButton(){
+        getSaveButton().click();
     }
     public CheckBox getShowAnnouncement() { return new CheckBox(driver, showAnnouncementLocator); }
+
+    public void setShowAnnouncement(){
+        getShowAnnouncement().set();
+    }
+    public void removeShowAnnouncement(){
+        getShowAnnouncement().remove();
+    }
 }

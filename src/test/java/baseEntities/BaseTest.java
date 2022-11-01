@@ -16,7 +16,7 @@ public class BaseTest {
         driver = new BrowsersService().getDriver();
         driver.get(ReadProperties.getUrl());
 
-        loginStep =new LoginStep(driver);
+        loginStep = new LoginStep(driver);
     }
 
     @AfterMethod

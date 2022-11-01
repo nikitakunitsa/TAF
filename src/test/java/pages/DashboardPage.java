@@ -16,9 +16,8 @@ public class DashboardPage extends BasePage {
     // Блок инициализации страницы
     public DashboardPage(WebDriver driver) {
         super(driver);
-        topMenuPage=new TopMenuPage(driver);
+        topMenuPage = new TopMenuPage(driver);
     }
-
 
 
     @Override
@@ -36,7 +35,11 @@ public class DashboardPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getHeaderTitleLabel() { return driver.findElement(headerTitleLabelLocator); }
+    public WebElement getHeaderTitleLabel() {
+        return driver.findElement(headerTitleLabelLocator);
+    }
 
-    public boolean isHeaderTitleLabelDisplayed() { return getHeaderTitleLabel().isDisplayed(); }
+    public boolean isHeaderTitleLabelDisplayed() {
+        return getHeaderTitleLabel().isDisplayed();
+    }
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import services.WaitsService;
+
 import java.time.Duration;
 
 public class ActionsTest extends BaseTest {
@@ -111,10 +112,11 @@ public class ActionsTest extends BaseTest {
     }
 
     @Test
-    public void Frame() {
+    public void Frame() throws InterruptedException {
         driver.get("http://the-internet.herokuapp.com/iframe");
         WebElement frameElement = driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(0);
+        Thread.sleep(200);
         Assert.assertTrue(driver.findElement(By.xpath("//p[. ='Your content goes here.']")).getText()
                 .equals("Your content goes here."));
     }

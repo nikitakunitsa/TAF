@@ -9,7 +9,7 @@ public class TopMenuPage extends BasePage {
 
 
     // Блок описания селекторов для элементов
-    private final By pageIndetifer= By.xpath("");
+    private final By pageIndetifer = By.xpath("");
 
     // Блок инициализации страницы
     public TopMenuPage(WebDriver driver) {
@@ -28,7 +28,11 @@ public class TopMenuPage extends BasePage {
 
 
     // Блок атомарных методов
-    public WebElement getHeaderTitleLabel() { return driver.findElement(pageIndetifer); }
+    public WebElement getHeaderTitleLabel() {
+        return driver.findElement(pageIndetifer);
+    }
 
-    public boolean isHeaderTitleLabelDisplayed() { return getHeaderTitleLabel().isDisplayed(); }
+    public boolean isHeaderTitleLabelDisplayed() {
+        return getHeaderTitleLabel().isDisplayed();
+    }
 }

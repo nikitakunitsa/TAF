@@ -8,9 +8,6 @@ import org.testng.annotations.Test;
 
 public class AddNewProjectTest extends BaseTest {
 
-    public AddNewProjectTest(WebDriver driver) {
-        super(driver);
-    }
 
     @Test
     public void addProjectTest() {

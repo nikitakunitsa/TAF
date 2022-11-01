@@ -12,9 +12,6 @@ import pages.DashboardPage;
 public class LoginTest extends BaseTest {
 
 
-    public LoginTest(WebDriver driver) {
-        super(driver);
-    }
 
     @Test
     public void successLoginTest() {

@@ -18,8 +18,7 @@ public class BaseTest {
     protected AddNewProjectStep  addNewProjectStep;
     protected AddNewTestCaseStep addNewTestCaseStep;
 
-    public BaseTest(WebDriver driver) {
-    }
+
 
 
     @BeforeMethod

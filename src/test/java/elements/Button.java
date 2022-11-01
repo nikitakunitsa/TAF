@@ -19,12 +19,6 @@ public class Button {
 
 
     public void click() {
-        try {
-            uiElement.click();
-        } catch (ElementNotInteractableException ex) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", uiElement);
-            uiElement.click();
-        }
-
+        uiElement.click();
     }
 }

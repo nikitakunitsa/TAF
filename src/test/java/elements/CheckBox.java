@@ -10,8 +10,9 @@ public class CheckBox {
     public CheckBox(WebDriver driver, By by) {
         this.uiElement = new UIElement(driver, by);
     }
+
     public CheckBox(WebDriver driver, WebElement webElement) {
-        this.uiElement = new UIElement(driver,webElement);
+        this.uiElement = new UIElement(driver, webElement);
     }
 
     public void set() {

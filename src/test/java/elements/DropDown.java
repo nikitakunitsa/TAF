@@ -1,7 +1,7 @@
 package elements;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
+
 
 public class DropDown {
     private UIElement uiElement;
@@ -16,17 +16,46 @@ public class DropDown {
         this.uiElement = new UIElement(driver, webElement);
         this.driver = driver;
     }
-    public  void selectByText(int value){
-        Select select=new Select(uiElement);
-        select.selectByIndex(value);
-    }
-    public void click() {
-        try {
-            uiElement.click();
-        } catch (ElementNotInteractableException ex) {
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", uiElement);
-            uiElement.click();
-        }
 
+    public CharSequence selectDragAndDownTemlate(String text) {
+        switch (text) {
+            case "Exploratory Session":
+                driver.findElement(By.id("template_id_chzn_o_0")).getText();
+                ;
+            case "Test Case (Steps)":
+                driver.findElement(By.id("template_id_chzn_o_1")).getText();
+                ;
+            case "Test Case (Text)":
+                driver.findElement(By.id("template_id_chzn_o_2")).getText();
+        }
+        return null;
     }
+
+    public CharSequence selectDragAndDownTemlate(int index) {
+        switch (index) {
+            case 1:
+                driver.findElement(By.id("template_id_chzn_o_0")).getText();
+                ;
+            case 2:
+                driver.findElement(By.id("template_id_chzn_o_1")).getText();
+                ;
+            case 3:
+                driver.findElement(By.id("template_id_chzn_o_2")).getText();
+        }
+        return null;
+    }
+
+
+    public void click() {
+        uiElement.click();
+    }
+
+    public void sendKeys(CharSequence... keysToSend) {
+
+        uiElement.sendKeys(keysToSend);
+    }
+
 }
+
+
+

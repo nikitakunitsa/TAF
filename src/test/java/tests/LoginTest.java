@@ -2,6 +2,7 @@ package tests;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.DashboardPage;
@@ -10,6 +11,10 @@ import pages.DashboardPage;
 
 public class LoginTest extends BaseTest {
 
+
+    public LoginTest(WebDriver driver) {
+        super(driver);
+    }
 
     @Test
     public void successLoginTest() {

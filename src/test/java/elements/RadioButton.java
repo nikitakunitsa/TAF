@@ -11,65 +11,49 @@ public class RadioButton {
         this.uiElement = new UIElement(driver, by);
         this.driver = driver;
     }
-    public RadioButton(WebDriver driver,WebElement webElement){
+
+    public RadioButton(WebDriver driver, WebElement webElement) {
         this.uiElement = new UIElement(driver, webElement);
         this.driver = driver;
     }
-    public  void chouseForSerialNumber(String VisibleText){
-        if (VisibleText=="Use multiple test suites to manage cases"){
-            try {
-                driver.findElement(By.xpath("//*[text()='Use multiple test suites to manage cases']")).click();}
-            catch (ElementNotInteractableException ex) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[text()='Use multiple test suites to manage cases']")));
-                driver.findElement(By.xpath("//*[text()='Use multiple test suites to manage cases']")).click();
-            }
-        }
-        else if(VisibleText=="Use a single repository with baseline support"){
-            try {
-                driver.findElement(By.xpath("//*[text()='Use a single repository with baseline support']")).click();}
-            catch (ElementNotInteractableException ex) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[text()='Use multiple test suites to manage cases']")));
-                driver.findElement(By.xpath("//*[text()='Use a single repository with baseline support']")).click();
-            }
-        }
-        else if(VisibleText=="Use a single repository for all cases (recommended)"){
-            try {
-                driver.findElement(By.xpath("//*[text()='Use a single repository for all cases (recommended)']")).click();}
-            catch (ElementNotInteractableException ex) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[text()='Use multiple test suites to manage cases']")));
-                driver.findElement(By.xpath("//*[text()='Use a single repository for all cases (recommended)']")).click();
-            }
-        }
+
+
+    public void selectedByText(String text) {
+        radioButtonSelected(text);
     }
 
-    public  void chouseForNumber(int number){
-        if (number==1){
-            try {
-                driver.findElement(By.id("suite_mode_single")).click();}
-            catch (ElementNotInteractableException ex) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("suite_mode_single")));
-                driver.findElement(By.id("suite_mode_single")).click();
-            }
-        }
-        else if(number==2){
-            try {
-                driver.findElement(By.id("suite_mode_single_baseline")).click();}
-            catch (ElementNotInteractableException ex) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("suite_mode_single_baseline")));
-                driver.findElement(By.id("suite_mode_single_baseline")).click();
-            }
-        }
-        else if(number==3){
-            try {
-                driver.findElement(By.id("suite_mode_multi")).click();}
-            catch (ElementNotInteractableException ex) {
-                ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.id("suite_mode_multi)")));
+    public void selectByIndex(int number) {
+        radioButtonSelected(number);
+    }
+
+
+    private void radioButtonSelected(String text) {
+        switch (text) {
+            case "Use multiple test suites to manage cases":
                 driver.findElement(By.id("suite_mode_multi")).click();
-            }
+                ;
+            case "Use a single repository with baseline support":
+                driver.findElement(By.id("suite_mode_single_baseline")).click();
+                ;
+            case "Use a single repository for all cases (recommended)":
+                driver.findElement(By.id("suite_mode_single")).click();
+                ;
         }
     }
 
-
+    private void radioButtonSelected(int number) {
+        switch (number) {
+            case 1:
+                driver.findElement(By.id("suite_mode_single")).click();
+                ;
+            case 2:
+                driver.findElement(By.id("suite_mode_single_baseline")).click();
+                ;
+            case 3:
+                driver.findElement(By.id("suite_mode_multi")).click();
+                ;
+        }
+    }
 }
 
 

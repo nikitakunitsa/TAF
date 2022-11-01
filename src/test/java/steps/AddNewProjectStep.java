@@ -34,17 +34,17 @@ public class AddNewProjectStep extends BaseStep {
         addProjectPage.getShowAnnouncement().remove();
     }
 
-    public void chooseForText(String value){
-        addProjectPage.getRadioButton().chouseForSerialNumber(value);
+    public void chooseForText(String text){
+        addProjectPage.getRadioButton().selectedByText(text);
     }
     public void setText(String value){
         addProjectPage.getInputAnnouncement().sendKeys(value);
     }
-    public String getSuccesfulText(){
-       return dashboardPage.getsuccesfulLocatorText().getText();
+    public String getSuccessfulText(){
+       return dashboardPage.getsuccessfulLocatorText().getText();
     }
-    public void chooseForNumber(int value){
-        addProjectPage.getRadioButton().chouseForNumber(value);
+    public void chooseForNumber(int number){
+        addProjectPage.getRadioButton().selectByIndex(number);
     }
 
 }

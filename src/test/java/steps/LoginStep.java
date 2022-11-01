@@ -2,6 +2,7 @@ package steps;
 
 import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
+import pages.ContainerMenuPage;
 import pages.ManeMenuPage;
 import pages.LoginPage;
 
@@ -9,12 +10,15 @@ import pages.LoginPage;
 public class LoginStep extends BaseStep {
     LoginPage loginPage;
     ManeMenuPage maneMenuPage;
+    ContainerMenuPage containerMenuPage;
+
 
     public LoginStep(WebDriver driver) {
         super(driver);
 
         loginPage = new LoginPage(driver);
         maneMenuPage = new ManeMenuPage(driver);
+        containerMenuPage = new ContainerMenuPage(driver);
     }
 
     public void login(String user, String psw) {

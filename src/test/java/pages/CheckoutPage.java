@@ -13,7 +13,7 @@ public class CheckoutPage extends BasePage {
 
     private final By pageIndetifer = By.xpath("//*[text()='Checkout']");
     private final By inputForFirstname = By.id("first-name");
-    private final By inputForLasttname = By.id("last-name");
+    private final By inputForLastname = By.id("last-name");
     private final By clickContinue = By.id("continue");
     private final By inputForZipcode = By.id("postal-code");
     private final By clickFinish = By.id("finish");
@@ -21,42 +21,54 @@ public class CheckoutPage extends BasePage {
     public WebElement getClickFinish() {
         return driver.findElement(clickFinish);
     }
-    public void setClickFinish() {
+
+    public void clickFinish() {
         getClickFinish().click();
     }
+
     public WebElement getInputForFirstname() {
         return driver.findElement(inputForFirstname);
     }
+
     public WebElement getClickContinue() {
         return driver.findElement(clickContinue);
     }
-    public void setClickContinue() {
+
+    public void clickContinue() {
         getClickContinue().click();
     }
-    public WebElement getInputForLasttname() {
-        return driver.findElement(inputForLasttname);
+
+    public WebElement getInputForLastname() {
+        return driver.findElement(inputForLastname);
     }
+
     public WebElement getInputForZipcode() {
         return driver.findElement(inputForZipcode);
     }
+
     public WebElement buttonCheckout() {
         return driver.findElement(pageIndetifer);
     }
-    public void clickButtonCkeckout() {
+
+    public void clickButtonCheckout() {
         buttonCheckout().click();
     }
+
     public void setFistName(String value) {
         getInputForFirstname().sendKeys(value);
     }
+
     public void setLastName(String value) {
-        getInputForLasttname().sendKeys(value);
+        getInputForLastname().sendKeys(value);
     }
+
     public void setLastZipCode(String value) {
         getInputForZipcode().sendKeys(value);
     }
+
     @Override
     protected By getPageIdentifier() {
-        return pageIndetifer ;
+        return pageIndetifer;
     }
 }
 

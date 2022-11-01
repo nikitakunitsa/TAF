@@ -17,21 +17,21 @@ public class CheckoutStep extends BaseStep {
         checkoutPage = new CheckoutPage(driver);
     }
 
-    public void goToContunieCheckout() {
-        checkoutPage.clickButtonCkeckout();
+    public void goToContinueCheckout() {
+        checkoutPage.clickButtonCheckout();
     }
 
-    public void SuccefulCheckout(String firstName, String lastname, String zipCode) {
+    public void successfulCheckout(String firstName, String lastname, String zipCode) {
         checkoutPage.setFistName(firstName);
         checkoutPage.setLastName(lastname);
         checkoutPage.setLastZipCode(zipCode);
     }
 
     public void clickToFinishCheckout() {
-        checkoutPage.setClickContinue();
+        checkoutPage.clickContinue();
     }
 
     public void finishCheckout() {
-        checkoutPage.setClickFinish();
+        checkoutPage.clickFinish();
     }
 }

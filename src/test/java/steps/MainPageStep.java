@@ -4,7 +4,6 @@ import baseEntities.BaseStep;
 import org.openqa.selenium.WebDriver;
 import pages.ContainerMenuPage;
 import pages.ManeMenuPage;
-import tests.MainMenuTest;
 
 
 public class MainPageStep extends BaseStep {
@@ -65,7 +64,7 @@ public class MainPageStep extends BaseStep {
         return maneMenuPage;
     }
 
-    public ManeMenuPage removeaddSauceLabsOnesie() throws InterruptedException {
+    public ManeMenuPage removeSauceLabsOnesie() throws InterruptedException {
         maneMenuPage.removeToShoppingCartStepSauceLabsOnesie();
         return maneMenuPage;
     }
@@ -80,18 +79,10 @@ public class MainPageStep extends BaseStep {
         return maneMenuPage;
     }
 
-    public String TakeValueOfBasket() {
+    public String takeValueOfBasket() {
         return maneMenuPage.getShoppingCartValueLocators().getText();
     }
 
-    public void clickButtonMenuPage() {
-        maneMenuPage.clickContainerMenuPage();
-    }
-
-    public void logout() {
-        containerMenuPage.logOutFromMenuPage();
-
-    }
 
     public void сlickOnTwiter() {
         maneMenuPage.twitterClick();

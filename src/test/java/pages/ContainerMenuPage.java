@@ -3,13 +3,13 @@ package pages;
 import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+
+
 
 public class ContainerMenuPage extends BasePage {
 
     // Блок описания селекторов для элементов
-    private final By pageIndetifer=By.id("react-burger-menu-btn");
-    private final By logOutItemLocator=By.id("logout_sidebar_link");
+    private final By pageIndetifer = By.id("react-burger-menu-btn");
 
     // Блок инициализации страницы
     public ContainerMenuPage(WebDriver driver) {
@@ -22,10 +22,4 @@ public class ContainerMenuPage extends BasePage {
     }
 
     // Блок атомарных методов
-    public WebElement getLogOutItemLocator() {
-        return  driver.findElement(logOutItemLocator);
-    }
-    public void logOutFromMenuPage(){
-        getLogOutItemLocator().click();
-    }
 }

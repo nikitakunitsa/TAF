@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import pages.ManeMenuPage;
 
 
-
 public class LoginTest extends BaseTest {
     @Test
     public void successLoginTest() throws InterruptedException {
@@ -43,15 +42,5 @@ public class LoginTest extends BaseTest {
     public void incorrectUserTest() {
         Assert.assertEquals(loginStep.loginIncorrect("some name", ReadProperties.password()).
                 getErrorTextElement().getText(), "Epic sadface: Username and password do not match any user in this service");
-    }
-
-    @Test
-    public void logoutUserTest() throws InterruptedException {
-       successLoginTest();
-       mainPageStep.clickButtonMenuPage();
-       Thread.sleep(1000);
-       mainPageStep.logout();
-       Thread.sleep(1000);
-       Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.getUrl()));
     }
 }

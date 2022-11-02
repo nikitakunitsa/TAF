@@ -1,11 +1,13 @@
 package elements;
 
 import org.openqa.selenium.*;
+import services.WaitsService;
 
 
 public class DropDown {
     private UIElement uiElement;
     private WebDriver driver;
+    private WaitsService waitsService
 
     public DropDown(WebDriver driver, By by) {
         this.uiElement = new UIElement(driver, by);
@@ -15,22 +17,20 @@ public class DropDown {
     public DropDown(WebDriver driver, WebElement webElement) {
         this.uiElement = new UIElement(driver, webElement);
         this.driver = driver;
+        this.waitsService = new WaitsService(driver);
     }
 
-    public CharSequence selectDragAndDownTemlate(String text) {
-        String s = new String();
+    public void selectDragAndDownTemlate(String text) {
         switch (text) {
             case "Exploratory Session":
-                s=driver.findElement(By.id("template_id_chzn_o_0")).getText();
+               waitsService.waitForVisibilityBy(driver,driver.findElement(By.cssSelector("#template_id_chzn .chzn-single")).sendKeys(driver.findElement(By.id("template_id_chzn_o_0")).getText()));
                 ;
             case "Test Case (Steps)":
-                s=driver.findElement(By.id("template_id_chzn_o_1")).getText();
+                driver.findElement(By.cssSelector("#template_id_chzn .chzn-single")).sendKeys(driver.findElement(By.id("template_id_chzn_o_1")).getText());
                 ;
             case "Test Case (Text)":
-                s=driver.findElement(By.id("template_id_chzn_o_2")).getText();
+                driver.findElement(By.cssSelector("#template_id_chzn .chzn-single")).sendKeys(driver.findElement(By.id("template_id_chzn_o_2")).getText());
         }
-
-        return s;
     }
 
    /* public CharSequence selectDragAndDownTemlate(int index) {

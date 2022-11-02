@@ -21,7 +21,7 @@ public class AddNewTestCaseStep extends BaseStep {
         addTestCasePage.getNameInput().sendKeys(name);
     }
     public void selectDragAndDownTemplate(String text) {
-        addTestCasePage.dragAndDownTemlate().sendKeys(addTestCasePage.dragAndDownTemlate().selectDragAndDownTemlate(text));
+        addTestCasePage.dragAndDownTemlate().selectDragAndDownTemlate(text);
     }
     /*public void selectDragAndDownTemplate(int index) {
         addTestCasePage.dragAndDownTemlate().sendKeys(addTestCasePage.dragAndDownType().selectDragAndDownTemlate(index));*/

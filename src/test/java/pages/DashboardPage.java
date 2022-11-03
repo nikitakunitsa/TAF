@@ -19,7 +19,7 @@ public class DashboardPage extends BasePage {
 
     private final By dropDownMenu=By.id("navigation-menu");
 
-    private final By testLocators=By.linkText("Tets4");
+    private final By projectTestLocators=By.linkText("Tets4");
 
     private final By testSuitesCasesLocators=By.id("navigation-suites");
 
@@ -56,17 +56,17 @@ public class DashboardPage extends BasePage {
     public void clickDropDownMenu(){
         getDropDownMenu().click();
     }
-    public WebElement getsuccessfulLocatorText(){
+    public WebElement getSuccessfulLocatorText(){
         return driver.findElement(successfulLocatorText);
     }
 
     public boolean isHeaderTitleLabelDisplayed() { return getHeaderTitleLabel().isDisplayed(); }
 
     public WebElement getTestLocator(){
-       return waitsService.waitForVisibilityBy(driver.findElement(testLocators));
+       return waitsService.waitForVisibilityBy(driver.findElement(projectTestLocators));
     }
 
-    public void clickTestLocator(){
+    public void clickProjectTestLocator(){
         getTestLocator().click();
     }
     public WebElement getTestSuitesCases(){

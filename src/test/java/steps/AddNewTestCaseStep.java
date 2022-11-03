@@ -1,6 +1,7 @@
 package steps;
 
 import baseEntities.BaseStep;
+import configuration.ReadProperties;
 import org.openqa.selenium.WebDriver;
 import pages.AddTestCasePage;
 import pages.DashboardPage;
@@ -16,25 +17,18 @@ public class AddNewTestCaseStep extends BaseStep {
         dashboardPage=new DashboardPage(driver);
 
     }
-
-    public void setNameTestCase(String name){
-        addTestCasePage.getNameInput().sendKeys(name);
-    }
-    public void selectDragAndDownTemplate(String text) {
-        addTestCasePage.dragAndDownTemlate().selectDragAndDownTemlate(text);
-    }
-    /*public void selectDragAndDownTemplate(int index) {
-        addTestCasePage.dragAndDownTemlate().sendKeys(addTestCasePage.dragAndDownType().selectDragAndDownTemlate(index));*/
-
-    public void clickDragAndDownTemplate(){
-        addTestCasePage.clickOnDragAndDownTemlate();
-    }
-
-    public void addCases(){
-        dashboardPage.clickTestLocator();
+    public void addNewTestCase(){
+        dashboardPage.clickProjectTestLocator();
         dashboardPage.clickTestSuitesCases();
         dashboardPage.clickSuitsLocator();
         dashboardPage.clickTestCase();
+        addTestCasePage.clickOnDragAndDownTemlate();
+    }
+    public void setNameTestCase(String text) {
+        addTestCasePage.getNameInput().sendKeys(text);
+    }
+    public void selectDragAndDownTemplateDropDown(String text) throws InterruptedException {
+        addTestCasePage.dragAndDownTemlate().selectDragAndDownTemlate(text);
     }
 
 

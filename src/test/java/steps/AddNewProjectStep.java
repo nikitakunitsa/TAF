@@ -41,7 +41,7 @@ public class AddNewProjectStep extends BaseStep {
         addProjectPage.getInputAnnouncement().sendKeys(value);
     }
     public String getSuccessfulText(){
-       return dashboardPage.getsuccessfulLocatorText().getText();
+       return dashboardPage.getSuccessfulLocatorText().getText();
     }
     public void chooseForNumber(int number){
         addProjectPage.getRadioButton().selectByIndex(number);

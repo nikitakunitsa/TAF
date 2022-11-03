@@ -21,5 +21,4 @@ public class AddNewProjectTest extends BaseTest {
         addNewProjectStep.saveProject();
         Assert.assertEquals(ReadProperties.successfullyText(), addNewProjectStep.getSuccessfulText());
     }
-
 }

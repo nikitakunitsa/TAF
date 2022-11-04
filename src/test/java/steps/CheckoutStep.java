@@ -1,6 +1,7 @@
 package steps;
 
 import baseEntities.BaseStep;
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import pages.CheckoutPage;
 import pages.ManeMenuPage;
@@ -17,21 +18,25 @@ public class CheckoutStep extends BaseStep {
         checkoutPage = new CheckoutPage(driver);
     }
 
-    public void goToContinueCheckout() {
+    public CheckoutPage goToContinueCheckout() {
         checkoutPage.clickButtonCheckout();
+        return checkoutPage;
     }
 
-    public void successfulCheckout(String firstName, String lastname, String zipCode) {
+    public CheckoutPage successfulCheckout(String firstName, String lastname, String zipCode) {
         checkoutPage.setFistName(firstName);
         checkoutPage.setLastName(lastname);
         checkoutPage.setLastZipCode(zipCode);
+        return checkoutPage;
     }
 
-    public void clickToFinishCheckout() {
+    public CheckoutPage clickToFinishCheckout() {
         checkoutPage.clickContinue();
+        return checkoutPage;
     }
 
-    public void finishCheckout() {
+    public CheckoutPage finishCheckout() {
         checkoutPage.clickFinish();
+        return checkoutPage;
     }
 }

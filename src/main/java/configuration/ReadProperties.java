@@ -71,8 +71,12 @@ public class ReadProperties {
         return properties.getProperty("postalCode");
     }
 
-    public static String succsfullCheckout() {
-        return properties.getProperty("succsfullCheckout");
+    public static String successfulCheckout() {
+        return properties.getProperty("successfulCheckout");
+    }
+
+    public static String dashBoardLink() {
+        return properties.getProperty("dashBoardLink");
     }
 
 }

@@ -4,72 +4,53 @@ import baseEntities.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class CheckoutPage extends BasePage {
     public CheckoutPage(WebDriver driver) {
         super(driver);
     }
 
+    @FindBy(xpath = "//*[text()='Checkout']")
+    public WebElement pageIndetifer;
+    @FindBy(id = "first-name")
+    public WebElement inputForFirstname;
+    @FindBy(id = "last-name")
+    public WebElement inputForLastname;
+    @FindBy(id = "continue")
+    public WebElement clickContinue;
+    @FindBy(id = "postal-code")
+    public WebElement inputForZipcode;
+    @FindBy(id = "finish")
+    public WebElement clickFinish;
 
-    private final By pageIndetifer = By.xpath("//*[text()='Checkout']");
-    private final By inputForFirstname = By.id("first-name");
-    private final By inputForLastname = By.id("last-name");
-    private final By clickContinue = By.id("continue");
-    private final By inputForZipcode = By.id("postal-code");
-    private final By clickFinish = By.id("finish");
-
-    public WebElement getClickFinish() {
-        return driver.findElement(clickFinish);
-    }
 
     public void clickFinish() {
-        getClickFinish().click();
+        clickFinish.click();
     }
 
-    public WebElement getInputForFirstname() {
-        return driver.findElement(inputForFirstname);
-    }
-
-    public WebElement getClickContinue() {
-        return driver.findElement(clickContinue);
-    }
 
     public void clickContinue() {
-        getClickContinue().click();
+        clickContinue.click();
     }
 
-    public WebElement getInputForLastname() {
-        return driver.findElement(inputForLastname);
-    }
-
-    public WebElement getInputForZipcode() {
-        return driver.findElement(inputForZipcode);
-    }
-
-    public WebElement buttonCheckout() {
-        return driver.findElement(pageIndetifer);
-    }
 
     public void clickButtonCheckout() {
-        buttonCheckout().click();
+        pageIndetifer.click();
     }
 
     public void setFistName(String value) {
-        getInputForFirstname().sendKeys(value);
+        inputForFirstname.sendKeys(value);
     }
 
     public void setLastName(String value) {
-        getInputForLastname().sendKeys(value);
+        inputForLastname.sendKeys(value);
     }
 
     public void setLastZipCode(String value) {
-        getInputForZipcode().sendKeys(value);
+        inputForZipcode.sendKeys(value);
     }
 
-    @Override
-    protected By getPageIdentifier() {
-        return pageIndetifer;
-    }
 }
 
 

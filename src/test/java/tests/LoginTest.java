@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void successLoginTest() throws InterruptedException {
         loginStep.loginSuccessful(ReadProperties.usernameStandard(), ReadProperties.password());
-        Assert.assertTrue(new ManeMenuPage(driver).isPageOpened());
+        Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.dashBoardLink()));
     }
 
     @Test
@@ -23,13 +23,13 @@ public class LoginTest extends BaseTest {
     @Test
     public void ProblemUsernameTest() {
         loginStep.loginIncorrect(ReadProperties.usernameProblem(), ReadProperties.password());
-        Assert.assertTrue(new ManeMenuPage(driver).isPageOpened());
+        Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.dashBoardLink()));
     }
 
     @Test
     public void PerformanceGlitchTest() {
         loginStep.loginIncorrect(ReadProperties.usernamePerformanceGlitch(), ReadProperties.password());
-        Assert.assertTrue(new ManeMenuPage(driver).isPageOpened());
+        Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.dashBoardLink()));
     }
 
     @Test

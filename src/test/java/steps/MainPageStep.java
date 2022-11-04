@@ -80,7 +80,7 @@ public class MainPageStep extends BaseStep {
     }
 
     public String takeValueOfBasket() {
-        return maneMenuPage.getShoppingCartValueLocators().getText();
+        return maneMenuPage.shoppingCartValueLocators().getText();
     }
 
 

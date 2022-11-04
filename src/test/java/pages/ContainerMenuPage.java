@@ -1,24 +1,20 @@
 package pages;
 
 import baseEntities.BasePage;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 
 public class ContainerMenuPage extends BasePage {
 
     // Блок описания селекторов для элементов
-    private final By pageIndetifer = By.id("react-burger-menu-btn");
+    @FindBy(id = "react-burger-menu-btn")
+    public WebElement pageIndetifer;
 
     // Блок инициализации страницы
     public ContainerMenuPage(WebDriver driver) {
         super(driver);
-    }
-
-    @Override
-    protected By getPageIdentifier() {
-        return pageIndetifer;
     }
 
     // Блок атомарных методов

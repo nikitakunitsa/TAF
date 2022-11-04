@@ -15,7 +15,7 @@ public class CheckoutTest extends BaseTest {
         checkoutStep.successfulCheckout(ReadProperties.firstName(), ReadProperties.lastName(), ReadProperties.postalCode());
         checkoutStep.clickToFinishCheckout();
         checkoutStep.finishCheckout();
-        Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.succsfullCheckout()));
+        Assert.assertTrue(driver.getCurrentUrl().equals(ReadProperties.successfulCheckout()));
     }
 
 }

@@ -5,30 +5,20 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class DashboardPage extends BasePage {
+import static com.codeborne.selenide.Selenide.$;
+
+public class DashboardPage {
     private final static String pagePath = "index.php?/dashboard";
 
     // Блок описания селекторов для элементов
     private final By headerTitleLabelLocator = By.xpath("//div[contains(text(), 'All Projects')]");
 
-
-    // Блок инициализации страницы
-    public DashboardPage(WebDriver driver) {
-        super(driver);
-
-    }
-
-
-    public void openPageByUrl() {
-        super.openPageByUrl(pagePath);
-    }
-
     // Блок атомарных методов
     public WebElement getHeaderTitleLabel() {
-        return driver.findElement(headerTitleLabelLocator);
+        return $(headerTitleLabelLocator);
     }
 
-    public boolean isHeaderTitleLabelDisplayed() {
+    public static boolean isHeaderTitleLabelDisplayed() {
         return getHeaderTitleLabel().isDisplayed();
     }
 }

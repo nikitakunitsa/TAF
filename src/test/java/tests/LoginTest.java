@@ -1,6 +1,6 @@
 package tests;
 
-import baseEntities.BaseTest;
+import baseEntities.BaseTestOld;
 import configuration.ReadProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -8,14 +8,14 @@ import pages.DashboardPage;
 
 
 
-public class LoginTest extends BaseTest {
+public class LoginTest extends BaseTestOld {
 
 
     @Test
     public void successLoginTest() {
         loginStep.login(ReadProperties.username(), ReadProperties.password());
 
-        Assert.assertTrue(new DashboardPage(driver).isHeaderTitleLabelDisplayed());
+        Assert.assertTrue(DashboardPage.isHeaderTitleLabelDisplayed());
     }
 
     @Test
@@ -32,6 +32,4 @@ public class LoginTest extends BaseTest {
                         .getErrorTextElement().getText()
                 , "Email/Login or Password is incorrect. Please try again.");
     }
-
-
 }

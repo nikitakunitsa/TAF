@@ -5,19 +5,18 @@ import org.openqa.selenium.WebDriver;
 import pages.DashboardPage;
 import pages.LoginPage;
 
-public class LoginStep extends BaseStep {
+import static com.codeborne.selenide.Selenide.page;
+
+public class LoginStep  {
     LoginPage loginPage;
 
-    public LoginStep(WebDriver driver) {
-        super(driver);
-
-        loginPage = new LoginPage(driver);
+    public LoginStep() {
+        loginPage=new LoginPage();
     }
 
     public DashboardPage loginSuccessful(String email, String psw) {
         login(email, psw);
-
-        return new DashboardPage(driver);
+        return  page(DashboardPage.class);
     }
 
     public void login(String email, String psw) {
@@ -29,9 +28,7 @@ public class LoginStep extends BaseStep {
     public LoginPage loginIncorrect(String email, String psw) {
         login(email, psw);
 
-        return loginPage;
+        return page(LoginPage.class);
     }
 
-    public void logout() {
-    }
 }

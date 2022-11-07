@@ -1,34 +1,31 @@
 package pages;
 
 import baseEntities.BasePage;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends BasePage {
+public class LoginPage {
     // Блок описания селекторов для элементов
     @FindBy(id = "name")
-    public WebElement emailInputLocator;
+    public SelenideElement emailInputLocator;
     @FindBy(id = "password")
-    public WebElement pswInputLocator;
+    public SelenideElement pswInputLocator;
     @FindBy(id = "button_primary")
-    public WebElement loginButtonLocator;
+    public SelenideElement loginButtonLocator;
     @FindBy(id = "error-text")
-    public WebElement errorTextLocator;
-
-    // Блок инициализации страницы
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
+    public SelenideElement errorTextLocator;
 
 
     // Блок атомарных методов
     public void setEmail(String value) {
-        emailInputLocator.sendKeys(value);
+        emailInputLocator.shouldBe(Condition.visible).setValue(value);
     }
 
     public void setPsw(String value) {
-        pswInputLocator.sendKeys(value);
+        pswInputLocator.shouldBe(Condition.visible).setValue(value);
     }
 
     public void clickLoginButton() {

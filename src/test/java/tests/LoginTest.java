@@ -1,46 +1,57 @@
 package tests;
 
 import baseEntities.BaseTest;
+import com.codeborne.selenide.Condition;
 import configuration.ReadProperties;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LoginPage;
 import pages.ManeMenuPage;
+import steps.LoginStep;
+
+import static com.codeborne.selenide.Selenide.open;
 
 
 public class LoginTest extends BaseTest {
     @Test
-    public void successLoginTest() throws InterruptedException {
-        loginStep.loginSuccessful(ReadProperties.usernameStandard(), ReadProperties.password());
-        Assert.assertTrue(new ManeMenuPage(driver).isPageOpened());
+    public void successLoginTest() {
+        LoginStep loginStep = open("", LoginStep.class);
+        ManeMenuPage maneMenuPage = loginStep.loginSuccessful(ReadProperties.usernameStandard(), ReadProperties.password());
+        maneMenuPage.getHeaderTitleLabelLocator().shouldBe(Condition.visible);
     }
 
     @Test
     public void LockedOutUsernameTest() {
-        Assert.assertEquals(loginStep.loginIncorrect(ReadProperties.usernameBlocked(), ReadProperties.password()).
-                getErrorTextElement().getText(), "Epic sadface: Sorry, this user has been locked out.");
+        LoginStep loginStep = open("", LoginStep.class);
+        LoginPage loginPage = loginStep.loginIncorrect(ReadProperties.usernameBlocked(), ReadProperties.password());
+        loginPage.getErrorTextElement().shouldHave(Condition.text("Epic sadface: Sorry, this user has been locked out."));
+
     }
 
     @Test
     public void ProblemUsernameTest() {
-        loginStep.loginIncorrect(ReadProperties.usernameProblem(), ReadProperties.password());
-        Assert.assertTrue(new ManeMenuPage(driver).isPageOpened());
+        LoginStep loginStep = open("", LoginStep.class);
+        ManeMenuPage maneMenuPage = loginStep.loginSuccessful(ReadProperties.usernameProblem(), ReadProperties.password());
+        maneMenuPage.getHeaderTitleLabelLocator().shouldBe(Condition.visible);
     }
 
     @Test
     public void PerformanceGlitchTest() {
-        loginStep.loginIncorrect(ReadProperties.usernamePerformanceGlitch(), ReadProperties.password());
-        Assert.assertTrue(new ManeMenuPage(driver).isPageOpened());
+        LoginStep loginStep = open("", LoginStep.class);
+        ManeMenuPage maneMenuPage = loginStep.loginSuccessful(ReadProperties.usernamePerformanceGlitch(), ReadProperties.password());
+        maneMenuPage.getHeaderTitleLabelLocator().shouldBe(Condition.visible);
     }
 
     @Test
     public void incorrectPswTest() {
-        Assert.assertEquals(loginStep.loginIncorrect(ReadProperties.usernameBlocked(), "2000").
-                getErrorTextElement().getText(), "Epic sadface: Username and password do not match any user in this service");
+        LoginStep loginStep = open("", LoginStep.class);
+        LoginPage loginPage = loginStep.loginIncorrect(ReadProperties.usernameBlocked(), "2000");
+        loginPage.getErrorTextElement().shouldHave(Condition.text("Epic sadface: Username and password do not match any user in this service"));
     }
 
     @Test
     public void incorrectUserTest() {
-        Assert.assertEquals(loginStep.loginIncorrect("some name", ReadProperties.password()).
-                getErrorTextElement().getText(), "Epic sadface: Username and password do not match any user in this service");
+        LoginStep loginStep = open("", LoginStep.class);
+        LoginPage loginPage = loginStep.loginIncorrect("some name", ReadProperties.password());
+        loginPage.getErrorTextElement().shouldHave(Condition.text("Epic sadface: Username and password do not match any user in this service"));
     }
 }

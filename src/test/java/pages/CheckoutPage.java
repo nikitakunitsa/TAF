@@ -1,15 +1,12 @@
 package pages;
 
-import baseEntities.BasePage;
+
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import static com.codeborne.selenide.Selenide.$;
 
-public class CheckoutPage extends BasePage {
-    public CheckoutPage(WebDriver driver) {
-        super(driver);
-    }
-
+public class CheckoutPage {
 
     private final By pageIndetifer = By.xpath("//*[text()='Checkout']");
     private final By inputForFirstname = By.id("first-name");
@@ -18,36 +15,36 @@ public class CheckoutPage extends BasePage {
     private final By inputForZipcode = By.id("postal-code");
     private final By clickFinish = By.id("finish");
 
-    public WebElement getClickFinish() {
-        return driver.findElement(clickFinish);
+    public SelenideElement getClickFinish() {
+        return $(clickFinish).shouldBe(Condition.visible);
     }
 
     public void clickFinish() {
         getClickFinish().click();
     }
 
-    public WebElement getInputForFirstname() {
-        return driver.findElement(inputForFirstname);
+    public SelenideElement getInputForFirstname() {
+        return $(inputForFirstname).shouldBe(Condition.visible);
     }
 
-    public WebElement getClickContinue() {
-        return driver.findElement(clickContinue);
+    public SelenideElement getClickContinue() {
+        return $(clickContinue).shouldBe(Condition.visible);
     }
 
     public void clickContinue() {
         getClickContinue().click();
     }
 
-    public WebElement getInputForLastname() {
-        return driver.findElement(inputForLastname);
+    public SelenideElement getInputForLastname() {
+        return $(inputForLastname).shouldBe(Condition.visible);
     }
 
-    public WebElement getInputForZipcode() {
-        return driver.findElement(inputForZipcode);
+    public SelenideElement getInputForZipcode() {
+        return $(inputForZipcode).shouldBe(Condition.visible);
     }
 
-    public WebElement buttonCheckout() {
-        return driver.findElement(pageIndetifer);
+    public SelenideElement buttonCheckout() {
+        return $(pageIndetifer).shouldBe(Condition.visible);
     }
 
     public void clickButtonCheckout() {
@@ -55,21 +52,18 @@ public class CheckoutPage extends BasePage {
     }
 
     public void setFistName(String value) {
-        getInputForFirstname().sendKeys(value);
+        getInputForFirstname().setValue(value);
     }
 
     public void setLastName(String value) {
-        getInputForLastname().sendKeys(value);
+        getInputForLastname().setValue(value);
     }
 
     public void setLastZipCode(String value) {
-        getInputForZipcode().sendKeys(value);
+        getInputForZipcode().setValue(value);
     }
 
-    @Override
-    protected By getPageIdentifier() {
-        return pageIndetifer;
-    }
+
 }
 
 

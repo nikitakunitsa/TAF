@@ -1,24 +1,24 @@
 package steps;
 
-import baseEntities.BaseStep;
+
 import org.openqa.selenium.WebDriver;
 import pages.ContainerMenuPage;
 import pages.ManeMenuPage;
 import pages.LoginPage;
 
+import static com.codeborne.selenide.Selenide.page;
 
-public class LoginStep extends BaseStep {
+
+public class LoginStep {
     LoginPage loginPage;
     ManeMenuPage maneMenuPage;
     ContainerMenuPage containerMenuPage;
 
 
-    public LoginStep(WebDriver driver) {
-        super(driver);
-
-        loginPage = new LoginPage(driver);
-        maneMenuPage = new ManeMenuPage(driver);
-        containerMenuPage = new ContainerMenuPage(driver);
+    public LoginStep() {
+        loginPage = new LoginPage();
+        maneMenuPage = new ManeMenuPage();
+        containerMenuPage = new ContainerMenuPage();
     }
 
     public void login(String user, String psw) {
@@ -27,16 +27,15 @@ public class LoginStep extends BaseStep {
         loginPage.clickLoginButton();
     }
 
-    public ManeMenuPage loginSuccessful(String user, String psw) throws InterruptedException {
+    public ManeMenuPage loginSuccessful(String user, String psw)  {
         login(user, psw);
-        Thread.sleep(1000);
-        return new ManeMenuPage(driver);
+        return page(ManeMenuPage.class);
     }
+
 
     public LoginPage loginIncorrect(String user, String psw) {
         login(user, psw);
-        return loginPage;
-
+        return page(LoginPage.class);
     }
 }
 

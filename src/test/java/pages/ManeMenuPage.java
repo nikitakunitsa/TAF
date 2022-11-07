@@ -1,11 +1,14 @@
 package pages;
 
-import baseEntities.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
-public class ManeMenuPage extends BasePage {
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.By;
+
+
+import static com.codeborne.selenide.Selenide.$;
+
+public class ManeMenuPage {
     private final static String pagePath = "/inventory.html";
 
 
@@ -25,52 +28,38 @@ public class ManeMenuPage extends BasePage {
     private final By testallTheThingsTShirtRedLocatorsRemove = By.id("remove-test.allthethings()-t-shirt-(red)");
     private final By shoppingCartValueLocators = By.className("shopping_cart_badge");
     private final By shoppingCartLink = By.className("shopping_cart_link");
-    private final By containerMenuPageLink = By.id("react-burger-menu-btn");
     private final By twitterClick = By.linkText("Twitter");
     private final By facebookClick = By.linkText("Facebook");
-    public ContainerMenuPage containerMenuPage;
 
-    // Блок инициализации страницы
-    public ManeMenuPage(WebDriver driver) {
-        super(driver);
-        containerMenuPage = new ContainerMenuPage(driver);
+
+    public SelenideElement getSauceLabsBikeLighLocatorRemove() {
+        return $(sauceLabsBikeLighLocatorRemove).shouldBe(Condition.visible);
     }
 
-    @Override
-    protected By getPageIdentifier() {
-        return headerTitleLabelLocator;
+    public SelenideElement getHeaderTitleLabelLocator() {
+        return $(headerTitleLabelLocator);
     }
 
-    public WebElement getSauceLabsBikeLighLocatorRemove() {
-        return driver.findElement(sauceLabsBikeLighLocatorRemove);
+
+    public SelenideElement getSauceLabsBoltTShirtLocatoRemove() {
+        return $(sauceLabsBoltTShirtLocatoRemove).shouldBe(Condition.visible);
     }
 
-    public WebElement getSauceLabsBoltTShirtLocatoRemove() {
-        return driver.findElement(sauceLabsBoltTShirtLocatoRemove);
+    public SelenideElement getSauceLabsFleeceJackeLocatorRemove() {
+        return $(sauceLabsFleeceJackeLocatorRemove).shouldBe(Condition.visible);
     }
 
-    public WebElement getSauceLabsFleeceJackeLocatorRemove() {
-        return driver.findElement(sauceLabsFleeceJackeLocatorRemove);
+    public SelenideElement getSauceLabsOnesieLocatorRemove() {
+        return $(sauceLabsOnesieLocatorRemove).shouldBe(Condition.visible);
     }
 
-    public WebElement getSauceLabsOnesieLocatorRemove() {
-        return driver.findElement(sauceLabsOnesieLocatorRemove);
+    public SelenideElement getTestallTheThingsTShirtRedLocatorsRemove() {
+        return $(testallTheThingsTShirtRedLocatorsRemove).shouldBe(Condition.visible);
     }
 
-    public WebElement getTestallTheThingsTShirtRedLocatorsRemove() {
-        return driver.findElement(testallTheThingsTShirtRedLocatorsRemove);
-    }
 
-    public WebElement getContainerMenuPage() {
-        return driver.findElement(containerMenuPageLink);
-    }
-
-    public void clickContainerMenuPage() {
-        getContainerMenuPage().click();
-    }
-
-    public WebElement getShoppingCartLink() {
-        return driver.findElement(shoppingCartLink);
+    public SelenideElement getShoppingCartLink() {
+        return $(shoppingCartLink).shouldBe(Condition.visible);
     }
 
     public void clickToCheckoutPage() {
@@ -78,99 +67,93 @@ public class ManeMenuPage extends BasePage {
     }
 
 
-    public WebElement getSauceLabsBackpackLocator() {
-        return driver.findElement(sauceLabsBackpackLocator);
+    public SelenideElement getSauceLabsBackpackLocator() {
+        return $(sauceLabsBackpackLocator).shouldBe(Condition.visible);
 
     }
 
-    public WebElement getSauceLabsBikeLighLocator() {
-        return driver.findElement(sauceLabsBikeLighLocator);
+    public SelenideElement getSauceLabsBikeLighLocator() {
+        return $(sauceLabsBikeLighLocator).shouldBe(Condition.visible);
     }
 
-    public WebElement getSauceLabsBoltTShirtLocator() {
-        return driver.findElement(sauceLabsBoltTShirtLocator);
+    public SelenideElement getSauceLabsBoltTShirtLocator() {
+        return $(sauceLabsBoltTShirtLocator).shouldBe(Condition.visible);
     }
 
-    public WebElement getSauceLabsFleeceJackeLocator() {
-        return driver.findElement(sauceLabsFleeceJackeLocator);
+    public SelenideElement getSauceLabsFleeceJackeLocator() {
+        return $(sauceLabsFleeceJackeLocator).shouldBe(Condition.visible);
     }
 
-    public WebElement getSauceLabsOnesieLocator() {
-        return driver.findElement(sauceLabsOnesieLocator);
+    public SelenideElement getSauceLabsOnesieLocator() {
+        return $(sauceLabsOnesieLocator).shouldBe(Condition.visible);
     }
 
-    public WebElement getTestallTheThingsTShirtRedLocators() {
-        return driver.findElement(testallTheThingsTShirtRedLocators);
+    public SelenideElement getTestallTheThingsTShirtRedLocators() {
+        return $(testallTheThingsTShirtRedLocators).shouldBe(Condition.visible);
     }
 
-    public WebElement getTwitterClick() {
-        return driver.findElement(twitterClick);
+    public SelenideElement getTwitterClick() {
+        return $(twitterClick).shouldBe(Condition.visible);
     }
 
     public void twitterClick() {
         getTwitterClick().click();
     }
 
-    public WebElement getFacebookClick() {
-        return driver.findElement(facebookClick);
+    public SelenideElement getFacebookClick() {
+        return $(facebookClick).shouldBe(Condition.visible);
     }
 
     public void facebookClick() {
         getFacebookClick().click();
     }
 
-    public WebElement getSauceLabsBackpackLocatorRemove() {
-        return driver.findElement(sauceLabsBackpackLocatorRemove);
+    public SelenideElement getSauceLabsBackpackLocatorRemove() {
+        return $(sauceLabsBackpackLocatorRemove).shouldBe(Condition.visible);
     }
 
 
-    public void removeToShoppingCarsStepSauceLabsBackPack() throws InterruptedException {
+    public void removeToShoppingCarsStepSauceLabsBackPack() {
         getSauceLabsBackpackLocatorRemove().click();
-        Thread.sleep(500);
+
     }
 
     public void addToShoppingCarsStepSauceLabsBackPack() {
         getSauceLabsBackpackLocator().click();
     }
 
-    public void removeToShoppingCarsStepSauceLabsBikeLight() throws InterruptedException {
+    public void removeToShoppingCarsStepSauceLabsBikeLight() {
         getSauceLabsBikeLighLocatorRemove().click();
-        Thread.sleep(500);
+
     }
 
     public void addToShoppingCartStepSauceLabsBoltTShirt() {
         getSauceLabsBoltTShirtLocator().click();
     }
 
-    public void removeToShoppingCartStepSauceLabsBoltTShirt() throws InterruptedException {
+    public void removeToShoppingCartStepSauceLabsBoltTShirt() {
         getSauceLabsBoltTShirtLocatoRemove().click();
-        Thread.sleep(500);
     }
 
-    public void addToShoppingCarsStepSauceLabsBikeLight() throws InterruptedException {
+    public void addToShoppingCarsStepSauceLabsBikeLight() {
         getSauceLabsBikeLighLocator().click();
-        Thread.sleep(500);
     }
 
 
-    public void removeToShoppingCartStepSauceSauceLabsFleeceJacket() throws InterruptedException {
+    public void removeToShoppingCartStepSauceSauceLabsFleeceJacket() {
         getSauceLabsFleeceJackeLocatorRemove().click();
-        Thread.sleep(500);
     }
 
-    public void addToShoppingCartStepSauceSauceLabsFleeceJacket() throws InterruptedException {
+    public void addToShoppingCartStepSauceSauceLabsFleeceJacket() {
         getSauceLabsFleeceJackeLocator().click();
-        Thread.sleep(500);
     }
 
-    public void addToShoppingCartStepSauceLabsOnesie() throws InterruptedException {
+    public void addToShoppingCartStepSauceLabsOnesie() {
         getSauceLabsOnesieLocator().click();
-        Thread.sleep(500);
     }
 
-    public void removeToShoppingCartStepSauceLabsOnesie() throws InterruptedException {
+    public void removeToShoppingCartStepSauceLabsOnesie() {
         getSauceLabsOnesieLocatorRemove().click();
-        Thread.sleep(500);
     }
 
     public void addToShoppingCarsStepTShirtRed() {
@@ -181,8 +164,8 @@ public class ManeMenuPage extends BasePage {
         getTestallTheThingsTShirtRedLocatorsRemove().click();
     }
 
-    public WebElement getShoppingCartValueLocators() {
-        return driver.findElement(shoppingCartValueLocators);
+    public SelenideElement getShoppingCartValueLocators() {
+        return $(shoppingCartValueLocators).shouldBe(Condition.visible);
     }
 }
 

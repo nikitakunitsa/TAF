@@ -1,20 +1,18 @@
 package steps;
 
-import baseEntities.BaseStep;
-import org.openqa.selenium.WebDriver;
+
 import pages.CheckoutPage;
 import pages.ManeMenuPage;
 
-public class CheckoutStep extends BaseStep {
+public class CheckoutStep  {
 
     ManeMenuPage maneMenuPage;
 
     CheckoutPage checkoutPage;
 
-    public CheckoutStep(WebDriver driver) {
-        super(driver);
-        maneMenuPage = new ManeMenuPage(driver);
-        checkoutPage = new CheckoutPage(driver);
+    public CheckoutStep() {
+        maneMenuPage = new ManeMenuPage();
+        checkoutPage = new CheckoutPage();
     }
 
     public void goToContinueCheckout() {

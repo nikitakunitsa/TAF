@@ -1,40 +1,38 @@
 package steps;
 
-import baseEntities.BaseStep;
-import org.openqa.selenium.WebDriver;
+
 import pages.ContainerMenuPage;
 import pages.ManeMenuPage;
 
 
-public class MainPageStep extends BaseStep {
+public class MainPageStep {
 
     ManeMenuPage maneMenuPage;
     ContainerMenuPage containerMenuPage;
 
-    public MainPageStep(WebDriver driver) {
-        super(driver);
-        maneMenuPage = new ManeMenuPage(driver);
-        containerMenuPage = new ContainerMenuPage(driver);
-
+    public MainPageStep() {
+        maneMenuPage = new ManeMenuPage();
+        containerMenuPage = new ContainerMenuPage();
     }
+
 
     public ManeMenuPage addSauceLabsBaskPack() {
         maneMenuPage.addToShoppingCarsStepSauceLabsBackPack();
         return maneMenuPage;
     }
 
-    public ManeMenuPage removeSauceLabsBaskPack() throws InterruptedException {
+    public ManeMenuPage removeSauceLabsBaskPack() {
         maneMenuPage.removeToShoppingCarsStepSauceLabsBackPack();
         return maneMenuPage;
     }
 
 
-    public ManeMenuPage addSauceLabsBikeLight() throws InterruptedException {
+    public ManeMenuPage addSauceLabsBikeLight() {
         maneMenuPage.addToShoppingCarsStepSauceLabsBikeLight();
         return maneMenuPage;
     }
 
-    public ManeMenuPage removeSauceLabsBikeLight() throws InterruptedException {
+    public ManeMenuPage removeSauceLabsBikeLight() {
         maneMenuPage.removeToShoppingCarsStepSauceLabsBikeLight();
         return maneMenuPage;
     }
@@ -44,27 +42,27 @@ public class MainPageStep extends BaseStep {
         return maneMenuPage;
     }
 
-    public ManeMenuPage removeSauceLabsBoltTShirt() throws InterruptedException {
+    public ManeMenuPage removeSauceLabsBoltTShirt() {
         maneMenuPage.removeToShoppingCartStepSauceLabsBoltTShirt();
         return maneMenuPage;
     }
 
-    public ManeMenuPage addSauceSauceLabsFleeceJacket() throws InterruptedException {
+    public ManeMenuPage addSauceSauceLabsFleeceJacket() {
         maneMenuPage.addToShoppingCartStepSauceSauceLabsFleeceJacket();
         return maneMenuPage;
     }
 
-    public ManeMenuPage removeSauceSauceLabsFleeceJacket() throws InterruptedException {
+    public ManeMenuPage removeSauceSauceLabsFleeceJacket() {
         maneMenuPage.removeToShoppingCartStepSauceSauceLabsFleeceJacket();
         return maneMenuPage;
     }
 
-    public ManeMenuPage addSauceLabsOnesie() throws InterruptedException {
+    public ManeMenuPage addSauceLabsOnesie() {
         maneMenuPage.addToShoppingCartStepSauceLabsOnesie();
         return maneMenuPage;
     }
 
-    public ManeMenuPage removeSauceLabsOnesie() throws InterruptedException {
+    public ManeMenuPage removeSauceLabsOnesie() {
         maneMenuPage.removeToShoppingCartStepSauceLabsOnesie();
         return maneMenuPage;
     }

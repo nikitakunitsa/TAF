@@ -36,11 +36,6 @@ public class ManeMenuPage {
         return $(sauceLabsBikeLighLocatorRemove).shouldBe(Condition.visible);
     }
 
-    public SelenideElement getHeaderTitleLabelLocator() {
-        return $(headerTitleLabelLocator);
-    }
-
-
     public SelenideElement getSauceLabsBoltTShirtLocatoRemove() {
         return $(sauceLabsBoltTShirtLocatoRemove).shouldBe(Condition.visible);
     }

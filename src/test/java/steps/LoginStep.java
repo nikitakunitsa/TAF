@@ -1,12 +1,8 @@
 package steps;
 
-
-import org.openqa.selenium.WebDriver;
 import pages.ContainerMenuPage;
 import pages.ManeMenuPage;
 import pages.LoginPage;
-
-import static com.codeborne.selenide.Selenide.page;
 
 
 public class LoginStep {
@@ -24,18 +20,16 @@ public class LoginStep {
     public void login(String user, String psw) {
         loginPage.setEmail(user);
         loginPage.setPsw(psw);
+
+    }
+
+    public void loginSuccessful(String user, String psw) {
+        login(user, psw);
+    }
+
+    public void loginSuccessfulAndClick(String user, String psw) {
+        login(user, psw);
         loginPage.clickLoginButton();
-    }
-
-    public ManeMenuPage loginSuccessful(String user, String psw)  {
-        login(user, psw);
-        return page(ManeMenuPage.class);
-    }
-
-
-    public LoginPage loginIncorrect(String user, String psw) {
-        login(user, psw);
-        return page(LoginPage.class);
     }
 }
 

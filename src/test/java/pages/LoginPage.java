@@ -13,12 +13,6 @@ public class LoginPage {
     private final By userNameInputLocator = By.id("user-name");
     private final By pswInputLocator = By.id("password");
     private final By loginButtonLocator = By.id("login-button");
-    private final By errorTextLocator = By.tagName("h3");
-
-
-    public SelenideElement getPageIdentifier() {
-        return $(loginButtonLocator).shouldBe(Condition.visible);
-    }
 
     // Блок атомарных методов
     public SelenideElement getUserNameInputLocator() {
@@ -44,9 +38,4 @@ public class LoginPage {
     public void clickLoginButton() {
         getLoginButton().click();
     }
-
-    public SelenideElement getErrorTextElement() {
-        return $(errorTextLocator).shouldBe(Condition.visible);
-    }
-
 }

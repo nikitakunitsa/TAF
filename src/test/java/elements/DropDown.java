@@ -31,14 +31,10 @@ public class DropDown {
     }
 
     public void selectDragAndDownTemlate(String text) throws InterruptedException {
-        Actions action=new Actions(driver);
         switch (text) {
             case "Exploratory Session":
                 driver.findElement(By.cssSelector("#template_id_chzn input")).sendKeys(driver.findElement(By.id("template_id_chzn_o_0")).getText());
-                action.moveToElement(driver.findElement(By.id("template_id_chzn_o_0")),100,100)
-                        .click(driver.findElement(By.id("template_id_chzn_o_0")))
-                        .build()
-                        .perform();
+                driver.findElement(By.id("template_id_chzn_o_0"));
                 ;
             case "Test Case (Steps)":
                 driver.findElement(By.cssSelector("#template_id_chzn input")).sendKeys(driver.findElement(By.id("template_id_chzn_o_1")).getText());

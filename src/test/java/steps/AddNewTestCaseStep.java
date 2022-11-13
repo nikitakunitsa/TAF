@@ -13,20 +13,20 @@ public class AddNewTestCaseStep extends BaseStep {
 
     public AddNewTestCaseStep(WebDriver driver) {
         super(driver);
-        addTestCasePage=new AddTestCasePage(driver);
-        dashboardPage=new DashboardPage(driver);
+        addTestCasePage = new AddTestCasePage(driver);
+        dashboardPage = new DashboardPage(driver);
 
     }
-    public void addNewTestCase(){
-        dashboardPage.clickProjectTestLocator();
-        dashboardPage.clickTestSuitesCases();
-        dashboardPage.clickSuitsLocator();
-        dashboardPage.clickTestCase();
-        addTestCasePage.clickOnDragAndDownTemlate();
+
+    public void addNewTestCase() {
+        dashboardPage.testCasesLink().click();
+        dashboardPage.addTestCasesLink().click();
     }
+
     public void setNameTestCase(String text) {
         addTestCasePage.getNameInput().sendKeys(text);
     }
+
     public void selectDragAndDownTemplateDropDown(String text) throws InterruptedException {
         addTestCasePage.dragAndDownTemlate().selectDragAndDownTemlate(text);
     }

@@ -2,7 +2,6 @@ package tests;
 
 import baseEntities.BaseTest;
 import configuration.ReadProperties;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -20,5 +19,6 @@ public class AddNewProjectTest extends BaseTest {
         addNewProjectStep.chooseForNumber(3);
         addNewProjectStep.saveProject();
         Assert.assertEquals(ReadProperties.successfullyText(), addNewProjectStep.getSuccessfulText());
+
     }
 }

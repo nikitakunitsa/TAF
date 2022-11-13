@@ -1,11 +1,12 @@
 package pages;
 
 import baseEntities.BasePage;
-import elements.DropDown;
 import elements.Link;
+import elements.UIElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 
 public class DashboardPage extends BasePage {
     private final static String pagePath = "index.php?/dashboard";
@@ -13,19 +14,14 @@ public class DashboardPage extends BasePage {
     // Блок описания селекторов для элементов
     private final By headerTitleLabelLocator = By.xpath("//div[contains(text(), 'All Projects')]");
 
-    private final By addLinkNewProjectLocator=By.id("sidebar-projects-add");
 
-    private final By successfulLocatorText=By.className("message-success");
+    private final By testCasesLocator = By.linkText("Test Cases");
 
-    private final By dropDownMenu=By.id("navigation-menu");
+    private final By addTestCasesLocator = By.linkText("Add Test Case");
 
-    private final By projectTestLocators=By.linkText("Tets4");
+    private final By addNewProjectLocator = By.linkText("Add Project");
 
-    private final By testSuitesCasesLocators=By.id("navigation-suites");
-
-    private final By suitsLocator=By.linkText("Master");
-
-    private final By addTestCaseLocators=By.linkText("Add Test Case");
+    private final By successfulTextLocator = By.className("message-success");
     public TopMenuPage topMenuPage;
 
     // Блок инициализации страницы
@@ -40,56 +36,23 @@ public class DashboardPage extends BasePage {
         return headerTitleLabelLocator;
     }
 
-    public void openPageByUrl() {
-        super.openPageByUrl(pagePath);
+    public Link testCasesLink() {
+        return new Link(driver, waitsService.waitForVisibilityBy(testCasesLocator));
     }
 
-    // Блок атомарных методов
-    public WebElement getHeaderTitleLabel() { return driver.findElement(headerTitleLabelLocator); }
-
-    public Link  addLinkNewProjectLocator(){
-        return new Link(driver,waitsService.waitForVisibilityBy(addLinkNewProjectLocator));
-    }
-    public DropDown getDropDownMenu(){
-        return new DropDown(driver,waitsService.waitForVisibilityBy(dropDownMenu));
-    }
-    public void clickDropDownMenu(){
-        getDropDownMenu().click();
-    }
-    public WebElement getSuccessfulLocatorText(){
-        return driver.findElement(successfulLocatorText);
+    public Link addTestCasesLink() {
+        return new Link(driver, waitsService.waitForVisibilityBy(addTestCasesLocator));
     }
 
-    public boolean isHeaderTitleLabelDisplayed() { return getHeaderTitleLabel().isDisplayed(); }
-
-    public WebElement getTestLocator(){
-       return waitsService.waitForVisibilityBy(driver.findElement(projectTestLocators));
+    public Link addNewProjectLink() {
+        return new Link(driver, waitsService.waitForVisibilityBy(addNewProjectLocator));
     }
 
-    public void clickProjectTestLocator(){
-        getTestLocator().click();
+    public UIElement successfulText() {
+        return new UIElement(driver, waitsService.waitForVisibilityBy(successfulTextLocator));
     }
-    public WebElement getTestSuitesCases(){
-        return waitsService.waitForVisibilityBy(driver.findElement(testSuitesCasesLocators));
-    }
-    public void clickTestSuitesCases(){
-        getTestSuitesCases().click();
-    }
-    public WebElement getSuitsLocator(){
-        return waitsService.waitForVisibilityBy(driver.findElement(suitsLocator));
-    }
-
-    public void clickSuitsLocator(){
-        getSuitsLocator().click();
-    }
-
-    public WebElement getAddTestCaseLocators(){
-       return waitsService.waitForVisibilityBy(driver.findElement(addTestCaseLocators));
-    }
-    public void clickTestCase(){
-        getAddTestCaseLocators().click();
-    }
-
 
 }
+
+
 

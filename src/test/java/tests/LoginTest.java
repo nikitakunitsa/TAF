@@ -8,9 +8,7 @@ import org.testng.annotations.Test;
 import pages.DashboardPage;
 
 
-
 public class LoginTest extends BaseTest {
-
 
 
     @Test

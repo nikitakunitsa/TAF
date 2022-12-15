@@ -5,17 +5,17 @@
     "isShowAnnouncement": true,
     "id": 21,
     "floatID": 1.3,
-    "tectcases": [
+    "testcases": [
       1,
       3,
       5
     ],
-    "tectcases1": [
+    "testcases1": [
       "abc",
       "321",
       "dadwd"
     ],
-    "tectcases2": [
+    "testcases2": [
       false,
       true
     ],
@@ -32,17 +32,17 @@
     "isShowAnnouncement": true,
     "id": 21,
     "floatID": 1.3,
-    "tectcases": [
+    "testcases": [
       1,
       3,
       5
     ],
-    "tectcases1": [
+    "testcases1": [
       "abc",
       "321",
       "dadwd"
     ],
-    "tectcases2": [
+    "testcases2": [
       false,
       true
     ],

@@ -1,0 +1,236 @@
+{
+  "info": {
+    "_postman_id": "d59dd430-f6ca-4a03-a394-d5e5159c50f6",
+    "name": "Homework",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24416105"
+  },
+  "item": [
+    {
+      "name": "Add project",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "Kunitsa&Dzimau99",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "chehov.anton96@gmail.com",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Some name \",\r\n    \"announcement\": \"Some text\",\r\n    \"show_announcement\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/index.php?/api/v2/add_project",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "index.php"
+          ],
+          "query": [
+            {
+              "key": "/api/v2/add_project",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add Miliestones",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "chehov.anton96@gmail.com",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "Kunitsa&Dzimau99",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Some name \",\r\n    \"due_on\": 1394596385\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/index.php?/api/v2/add_milestone/90",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "index.php"
+          ],
+          "query": [
+            {
+              "key": "/api/v2/add_milestone/90",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Miliestones",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "chehov.anton96@gmail.com",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "Kunitsa&Dzimau99",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"is_completed\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/index.php?/api/v2/update_milestone/88",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "index.php"
+          ],
+          "query": [
+            {
+              "key": "/api/v2/update_milestone/88",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Miliestones",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "chehov.anton96@gmail.com",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "Kunitsa&Dzimau99",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/index.php?/api/v2/delete_milestone/88",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "index.php"
+          ],
+          "query": [
+            {
+              "key": "/api/v2/delete_milestone/88",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Read Milistones",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "chehov.anton96@gmail.com",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "Kunitsa&Dzimau99",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/index.php?/api/v2/get_milestone/88",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "index.php"
+          ],
+          "query": [
+            {
+              "key": "/api/v2/get_milestone/88",
+              "value": null
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

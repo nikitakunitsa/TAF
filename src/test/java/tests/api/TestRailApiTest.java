@@ -15,32 +15,33 @@ import static io.restassured.RestAssured.given;
 
 public class TestRailApiTest extends BaseApiTest {
     @Test
-    public void getAllUser(){
-     String endpoint="index.php?/api/v2/get_users";
+    public void getAllUser() {
+        String endpoint = "index.php?/api/v2/get_users";
 
-        RequestSpecification hhtpRequesr=given();
+        RequestSpecification hhtpRequesr = given();
         hhtpRequesr.header(HTTP.CONTENT_TYPE, ContentType.JSON);
-        hhtpRequesr.auth().preemptive().basic(ReadProperties.username(),ReadProperties.password());
+        hhtpRequesr.auth().preemptive().basic(ReadProperties.username(), ReadProperties.password());
+        System.out.println(hhtpRequesr.log());
 
-        Response response= hhtpRequesr.request(Method.GET,endpoint);
+        Response response = hhtpRequesr.request(Method.GET, endpoint);
 
         Assert.assertEquals(response.getStatusCode(), HttpStatus.SC_OK);
         System.out.println(response.getBody().asPrettyString());
     }
 
     @Test
-    public void getAllUser1(){
-        String endpoint="index.php?/api/v2/get_users";
+    public void getAllUser1() {
+        String endpoint = "index.php?/api/v2/get_users";
 
-       given()
-       .header(HTTP.CONTENT_TYPE, ContentType.JSON)
-       .auth().preemptive().basic(ReadProperties.username(),ReadProperties.password())
-               .log().all()
-               .when()
-               .get(endpoint)
-               .then()
-               .log().status()
-               .log().body()
-               .statusCode(HttpStatus.SC_OK);
+        given()
+                .header(HTTP.CONTENT_TYPE, ContentType.JSON)
+                .auth().preemptive().basic(ReadProperties.username(), ReadProperties.password())
+                .log().all()
+                .when()
+                .get(endpoint)
+                .then()
+                .log().status()
+                .log().body()
+                .statusCode(HttpStatus.SC_OK);
     }
 }

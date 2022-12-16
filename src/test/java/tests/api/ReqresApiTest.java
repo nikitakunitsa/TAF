@@ -28,7 +28,8 @@ public class ReqresApiTest {
         Assert.assertEquals(statusCode,200);
         Assert.assertEquals(statusCode, HttpStatus.SC_OK);
 
-        String responceBody=response.getBody().asString();
+        String responceBody=response.getBody().asPrettyString();
+        System.out.println(responceBody);
 }
 
     @Test
